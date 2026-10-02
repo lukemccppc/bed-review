@@ -176,27 +176,6 @@
   .benefit .src { display: block; font-size: .74rem; color: var(--muted); margin-top: 10px; }
   @media (max-width: 760px) { .benefits { grid-template-columns: 1fr; } .benefit { padding: 0 20px 20px; } .benefit-img { margin: 0 -20px 16px; } .recognition { grid-template-columns: repeat(3, 1fr); gap: 10px; } .recognition > div { grid-column: 1 / -1; } }
 
-  /* Comparison table */
-  .table-scroll { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--blue-line); background: var(--white); box-shadow: var(--shadow); }
-  table.compare { width: 100%; border-collapse: collapse; min-width: 680px; font-size: .93rem; }
-  table.compare th, table.compare td { padding: 13px 16px; text-align: center; border-bottom: 1px solid var(--blue-line); }
-  table.compare thead th { background: var(--blue); color: var(--white); font-weight: 700; vertical-align: bottom; }
-  table.compare thead th.top-col { background: var(--blue-dark); box-shadow: inset 0 4px 0 var(--gold); }
-  table.compare thead th .logo-chip { background: var(--white); border-radius: 8px; height: 50px; display: flex; align-items: center; justify-content: center; padding: 6px 10px; margin: 0 auto 8px; max-width: 170px; }
-  table.compare thead th .logo-chip img { max-height: 38px; width: auto; }
-  table.compare thead th .logo-chip img.tn { width: 140px; max-height: none; }
-  table.compare tbody th { text-align: left; font-weight: 600; color: var(--blue-dark); background: #f7f9fc; white-space: nowrap; }
-  table.compare tbody tr:last-child td, table.compare tbody tr:last-child th { border-bottom: 0; }
-  table.compare td.top-col { background: #f5f8fd; font-weight: 600; }
-  table.compare td.win { background: #e7f4ec; color: #145c33; font-weight: 700; }
-  table.compare td.win::before { content: "✓ "; color: var(--green); }
-  .pill { display: inline-block; font-size: .78rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: var(--blue-soft); color: var(--blue); }
-  .table-legend { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 16px; font-size: .8rem; color: var(--muted); margin-top: 10px; }
-  .table-legend .key { display: inline-flex; align-items: center; gap: 6px; }
-  .table-legend .key i { width: 14px; height: 14px; border-radius: 4px; background: #e7f4ec; border: 1px solid #b9dfc8; }
-  .table-hint { display: none; }
-  @media (max-width: 720px) { .table-hint { display: inline; } }
-
   /* Fit / skip and pros / cons (shared two-column block) */
   .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   .col-card { background: var(--white); border: 1px solid var(--blue-line); border-radius: var(--radius); padding: 26px; }
@@ -329,7 +308,6 @@
     <a class="logo" href="#top" aria-label="Bed Review home"><img src="assets/logo.svg" alt="Bed Review"></a>
     <nav aria-label="Primary">
       <a href="#top3">Top 3</a>
-      <a href="#compare">Compare</a>
       <a href="#why">Why T&amp;N</a>
       <a href="#models">T&amp;N Models</a>
       <a href="#faq">FAQ</a>
@@ -420,7 +398,7 @@
               <div class="muted-note">Price level: $$</div>
             </div>
           </div>
-          <div class="rank-foot"><a href="#compare">See how Serta compares</a></div>
+          <div class="rank-foot"><a href="#match">See who Serta is best for</a></div>
         </article>
 
         <!-- #3 Beautyrest -->
@@ -446,53 +424,9 @@
               <div class="muted-note">Price level: $$$</div>
             </div>
           </div>
-          <div class="rank-foot"><a href="#compare">See how Beautyrest compares</a></div>
+          <div class="rank-foot"><a href="#match">See who Beautyrest is best for</a></div>
         </article>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- 2. Comparison -->
-  <section class="section support" id="compare">
-    <div class="wrap">
-      <h2>How the Top 3 Compare</h2>
-
-      <div class="table-scroll">
-        <table class="compare">
-          <thead>
-            <tr>
-              <th style="background:var(--blue-dark)"></th>
-              <th class="top-col"><div class="logo-chip"><img class="tn" src="assets/tuft-needle.webp" alt="Tuft &amp; Needle"></div>Our #1 Pick</th>
-              <th><div class="logo-chip"><img src="assets/serta.png" alt="Serta"></div>#2</th>
-              <th><div class="logo-chip"><img src="assets/beautyrest.png" alt="Beautyrest"></div>#3</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><th>Rank &amp; score</th><td class="top-col">#1 · 9.7</td><td>#2 · 9.3</td><td>#3 · 9.1</td></tr>
-            <tr><th>Best for</th><td class="top-col"><span class="pill">Most sleepers</span></td><td><span class="pill">Side sleepers</span></td><td><span class="pill">Heavier sleepers</span></td></tr>
-            <tr><th>Mattress feel</th><td class="top-col">Responsive, balanced</td><td>Cushioned, contouring</td><td>Buoyant, traditional coil</td></tr>
-            <tr><th>Cooling</th><td class="win">Excellent</td><td>Good</td><td>Very Good</td></tr>
-            <tr><th>Pressure relief</th><td class="top-col">Very Good</td><td class="win">Excellent</td><td>Very Good</td></tr>
-            <tr><th>Motion isolation</th><td class="top-col">Very Good</td><td class="win">Excellent</td><td>Good</td></tr>
-            <tr><th>Edge support</th><td class="top-col">Good</td><td>Average</td><td class="win">Excellent</td></tr>
-            <tr><th>Price level</th><td class="win">$ · Best value</td><td>$$</td><td>$$$</td></tr>
-            <tr><th>Trial period</th><td class="top-col">100 nights</td><td>100 nights</td><td>100 nights</td></tr>
-            <tr><th>Warranty</th><td class="top-col">10-year limited</td><td>10-year limited</td><td>10-year limited</td></tr>
-            <tr><th></th>
-              <td class="top-col"><a class="btn sm" href="#" data-link="tn" rel="sponsored nofollow">Shop At Tuft &amp; Needle</a></td>
-              <td><a class="btn sm ghost" href="#" data-link="serta" rel="sponsored nofollow">Visit Serta →</a></td>
-              <td><a class="btn sm ghost" href="#" data-link="beautyrest" rel="sponsored nofollow">Visit Beautyrest →</a></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="table-legend">
-        <span class="key"><i></i>Category leader</span>
-        <span>Ratings reflect each brand's core lineup; individual models vary. Trial and warranty terms are for purchases made on each brand's own site. <span class="table-hint">Swipe to see all three →</span></span>
-      </div>
-      <div class="cta-row">
-        <a class="btn lg" href="#" data-link="tn" rel="sponsored nofollow">Shop At Tuft &amp; Needle</a>
       </div>
     </div>
   </section>
@@ -757,7 +691,7 @@
         <h2>Ready to See If Tuft &amp; Needle Is Right for You?</h2>
         <p>See current models, prices and offers directly from Tuft &amp; Needle. Every mattress comes with a 100-night trial, so you can decide at home.</p>
         <a class="btn lg" href="#" data-link="tn" rel="sponsored nofollow">Shop At Tuft &amp; Needle</a>
-        <p class="fine">Still comparing? <a href="#compare" style="color:#fff">See how all three brands stack up</a>.</p>
+        <p class="fine">Still comparing? <a href="#top3" style="color:#fff">Revisit our top 3</a>.</p>
       </div>
     </div>
   </section>
@@ -768,7 +702,7 @@
   <div class="wrap">
     <div class="top">
       <span class="logo-white"><img src="assets/logo.svg" alt="Bed Review"></span>
-      <nav><a href="#top3">Top 3</a><a href="#compare">Compare</a><a href="#models">T&amp;N Models</a><a href="#match">Sleeper Match</a><a href="#method">How We Choose</a><a href="#faq">FAQ</a></nav>
+      <nav><a href="#top3">Top 3</a><a href="#models">T&amp;N Models</a><a href="#match">Sleeper Match</a><a href="#method">How We Choose</a><a href="#faq">FAQ</a></nav>
     </div>
     <p>Bed Review is an independent comparison site. We may receive compensation when you click links to products on this page, which helps keep the site free. Compensation does not influence our rankings. Prices, policies, and offers change frequently and should be confirmed on each brand's website. Tuft &amp; Needle, T&amp;N Adaptive, Serta, and Beautyrest are trademarks of their respective owners.</p>
     <p style="margin-top:12px">© 2026 Bed Review. All rights reserved.</p>
