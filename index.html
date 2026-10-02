@@ -32,7 +32,7 @@
       label: 'Current Tuft & Needle Offer',
       text: 'Free T&N Down Alternative Pillow Set with any mattress purchase.',
       note: 'Offer shown on tuftandneedle.com as of Oct 2, 2026. Terms may change.',
-      cta: 'See Offer at Tuft & Needle →'
+      cta: 'Shop At Tuft & Needle'
     }
   };
 </script>
@@ -71,7 +71,7 @@
   .cta-row .fine { width: 100%; text-align: center; font-size: .78rem; color: var(--muted); }
 
   /* Buttons: primary = Tuft & Needle, secondary (ghost) = everyone else */
-  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--blue); color: var(--white); text-decoration: none; font-weight: 700; padding: 14px 22px; border-radius: 10px; transition: background .15s, transform .15s, color .15s; border: 2px solid var(--blue); cursor: pointer; font-size: 1rem; text-align: center; line-height: 1.3; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--blue); color: var(--white); text-decoration: none; font-weight: 700; padding: 14px 22px; border-radius: 6px; transition: background .15s, transform .15s, color .15s; border: 2px solid var(--blue); cursor: pointer; font-size: 1rem; text-align: center; line-height: 1.3; }
   .btn:hover { background: var(--blue-dark); border-color: var(--blue-dark); transform: translateY(-1px); }
   .btn.block { width: 100%; }
   .btn.lg { padding: 16px 24px; font-size: 1.05rem; box-shadow: 0 6px 16px rgba(47, 70, 121, .25); }
@@ -154,9 +154,17 @@
   .feature-video video { width: 100%; height: auto; display: block; aspect-ratio: 2048 / 1080; object-fit: cover; }
   .feature-video figcaption { background: var(--white); padding: 12px 18px; font-size: .85rem; color: var(--muted); }
   .feature-video figcaption b { color: var(--blue-dark); }
-  .recognition { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 18px; align-items: center; margin-top: 24px; background: var(--white); border: 1px solid var(--blue-line); border-radius: var(--radius); padding: 22px; }
+  .recognition { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 16px; align-items: center; margin-top: 24px; background: var(--white); border: 1px solid var(--blue-line); border-radius: var(--radius); padding: 22px; }
   .recognition h3 { font-size: 1.1rem; margin-bottom: 6px; }
   .recognition p { font-size: .88rem; color: var(--muted); }
+  .materials { margin-top: 24px; background: var(--white); border: 1px solid var(--blue-line); border-radius: var(--radius); padding: 30px 26px; text-align: center; }
+  .materials h3 { font-size: 1.35rem; margin-bottom: 6px; }
+  .materials-intro { font-size: .9rem; color: var(--muted); max-width: 600px; margin: 0 auto 24px; }
+  .materials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .materials-grid img { width: 104px; height: 104px; margin: 0 auto 14px; object-fit: contain; }
+  .materials-grid h4 { font-size: 1.02rem; color: var(--blue-dark); margin-bottom: 6px; }
+  .materials-grid p { font-size: .88rem; color: var(--muted); max-width: 280px; margin: 0 auto; }
+  @media (max-width: 700px) { .materials-grid { grid-template-columns: 1fr; gap: 26px; } .materials { padding: 24px 18px; } }
   .recognition img { border-radius: 10px; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; }
   .benefit .num { font-size: .75rem; font-weight: 800; letter-spacing: .08em; color: var(--blue); text-transform: uppercase; }
   .benefit h3 { font-size: 1.2rem; margin: 10px 0 8px; display: flex; align-items: center; gap: 12px; }
@@ -164,7 +172,7 @@
   .benefit h3 .ico svg { width: 20px; height: 20px; }
   .benefit p { font-size: .95rem; color: #39404f; }
   .benefit .src { display: block; font-size: .74rem; color: var(--muted); margin-top: 10px; }
-  @media (max-width: 760px) { .benefits { grid-template-columns: 1fr; } .benefit { padding: 0 20px 20px; } .benefit-img { margin: 0 -20px 16px; } .recognition { grid-template-columns: 1fr 1fr; } .recognition > div { grid-column: 1 / -1; } }
+  @media (max-width: 760px) { .benefits { grid-template-columns: 1fr; } .benefit { padding: 0 20px 20px; } .benefit-img { margin: 0 -20px 16px; } .recognition { grid-template-columns: repeat(3, 1fr); gap: 10px; } .recognition > div { grid-column: 1 / -1; } }
 
   /* Comparison table */
   .table-scroll { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--blue-line); background: var(--white); box-shadow: var(--shadow); }
@@ -345,7 +353,7 @@
 
         <!-- #1 Tuft & Needle -->
         <article class="rank-row top">
-          <div class="rank-bar"><span class="num">1</span><span class="tag">Top Pick</span><span class="best">Best Overall</span><span class="word">Outstanding</span></div>
+          <div class="rank-bar"><span class="num">1</span><span class="tag">Our Top Pick</span><span class="word">Outstanding</span></div>
           <div class="score-circle" aria-label="Bed Review score 9.7">9.7</div>
           <div class="rank-body">
             <div class="rank-brand">
@@ -364,7 +372,7 @@
               <li><span>Made in the U.S.A., CertiPUR-US® certified, fiberglass-free</span></li>
             </ul>
             <div class="rank-cta">
-              <a class="btn lg" href="#" data-link="tn" rel="sponsored nofollow">See Today's Tuft &amp; Needle Price →</a>
+              <a class="btn lg" href="#" data-link="tn" rel="sponsored nofollow">Shop At Tuft &amp; Needle</a>
               <div class="offer-mini" data-offer hidden>
                 <span data-offer-label></span>
                 <div data-offer-text></div>
@@ -388,7 +396,7 @@
 
         <!-- #2 Serta -->
         <article class="rank-row">
-          <div class="rank-bar"><span class="num">2</span><span class="best">Best for Side Sleepers</span><span class="word">Excellent</span></div>
+          <div class="rank-bar"><span class="num">2</span><span class="word">Excellent</span></div>
           <div class="score-circle" aria-label="Bed Review score 9.3">9.3</div>
           <div class="rank-body">
             <div class="rank-brand">
@@ -414,7 +422,7 @@
 
         <!-- #3 Beautyrest -->
         <article class="rank-row">
-          <div class="rank-bar"><span class="num">3</span><span class="best">Best Premium Hybrid</span><span class="word">Very Good</span></div>
+          <div class="rank-bar"><span class="num">3</span><span class="word">Very Good</span></div>
           <div class="score-circle" aria-label="Bed Review score 9.1">9.1</div>
           <div class="rank-body">
             <div class="rank-brand">
@@ -470,7 +478,7 @@
           <span class="src">Tuft &amp; Needle says it has 25% more airflow than memory foam.</span>
         </div>
         <div class="benefit">
-          <div class="benefit-img"><img src="assets/img/mint-hybrid.webp" alt="Close-up of a T&amp;N Mint Hybrid mattress" width="750" height="785" loading="lazy"></div>
+          <div class="benefit-img"><img src="assets/img/pressure-original.webp" alt="Cross-section of the T&amp;N Original mattress supporting a side sleeper" width="1000" height="563" loading="lazy"></div>
           <span class="num">03</span>
           <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5"/></svg></span>Balanced Pressure Relief</h3>
           <p>The comfort layer softens pressure at the shoulders and hips. A firmer support foam (and coils, in the hybrids) keeps your spine aligned underneath. The result is cushioning without the hammock-like sag that can cause morning stiffness.</p>
@@ -489,6 +497,28 @@
         </div>
         <img src="assets/img/award-3.webp" alt="T&amp;N Mint mattress with NapLab 2026 Lab-Tested Winner badge" width="751" height="751" loading="lazy">
         <img src="assets/img/award-1.webp" alt="Tuft &amp; Needle mattress with 2026 Forbes Vetted Best Product Awards badge" width="751" height="751" loading="lazy">
+        <img src="assets/img/award-2.webp" alt="T&amp;N mattress with 2026 Good Housekeeping Bedding Awards winner badge" width="751" height="751" loading="lazy">
+      </div>
+      <div class="materials">
+        <h3>Responsibly Crafted Materials</h3>
+        <p class="materials-intro">Every mattress sold on tuftandneedle.com carries these third-party certifications and safety standards, according to Tuft &amp; Needle.</p>
+        <div class="materials-grid">
+          <div>
+            <img src="assets/img/certipur-us.svg" alt="CertiPUR-US certified logo" width="290" height="289" loading="lazy">
+            <h4>CertiPUR-US® Certified</h4>
+            <p>Foams are independently tested and certified free of known harmful chemicals and gases.</p>
+          </div>
+          <div>
+            <img src="assets/img/greenguard-gold.svg" alt="UL Greenguard Gold certified logo" width="138" height="138" loading="lazy">
+            <h4>Greenguard Gold Certified</h4>
+            <p>Screened for over 10,000 harmful chemicals and VOCs that can affect indoor air quality.</p>
+          </div>
+          <div>
+            <img src="assets/img/fiberglass-free.svg" alt="Fiberglass free logo" width="291" height="291" loading="lazy">
+            <h4>Fiberglass Free</h4>
+            <p>No fiberglass in any of the mattress components.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -522,7 +552,7 @@
             <tr><th>Trial period</th><td class="top-col">100 nights</td><td>100 nights</td><td>100 nights</td></tr>
             <tr><th>Warranty</th><td class="top-col">10-year limited</td><td>10-year limited</td><td>10-year limited</td></tr>
             <tr><th></th>
-              <td class="top-col"><a class="btn sm" href="#" data-link="tn" rel="sponsored nofollow">See Today's Price →</a></td>
+              <td class="top-col"><a class="btn sm" href="#" data-link="tn" rel="sponsored nofollow">Shop At Tuft &amp; Needle</a></td>
               <td><a class="btn sm ghost" href="#" data-link="serta" rel="sponsored nofollow">Visit Serta →</a></td>
               <td><a class="btn sm ghost" href="#" data-link="beautyrest" rel="sponsored nofollow">Visit Beautyrest →</a></td>
             </tr>
@@ -534,7 +564,7 @@
         <span>Ratings reflect each brand's core lineup; individual models vary. Trial and warranty terms are for purchases made on each brand's own site. <span class="table-hint">Swipe to see all three →</span></span>
       </div>
       <div class="cta-row">
-        <a class="btn lg" href="#" data-link="tn" rel="sponsored nofollow">See Today's Tuft &amp; Needle Price →</a>
+        <a class="btn lg" href="#" data-link="tn" rel="sponsored nofollow">Shop At Tuft &amp; Needle</a>
       </div>
     </div>
   </section>
@@ -569,7 +599,7 @@
         </div>
       </div>
       <div class="cta-row">
-        <a class="btn lg" href="#" data-link="tn" rel="sponsored nofollow">See Tuft &amp; Needle Mattresses →</a>
+        <a class="btn lg" href="#" data-link="tn" rel="sponsored nofollow">Shop At Tuft &amp; Needle</a>
       </div>
     </div>
   </section>
@@ -595,7 +625,7 @@
               <li>First apartments &amp; guest rooms</li>
               <li>Value-focused shoppers</li>
             </ul>
-            <a class="btn block" href="#" data-link="tnOriginal" rel="sponsored nofollow">See T&amp;N Original Price →</a>
+            <a class="btn block" href="#" data-link="tnOriginal" rel="sponsored nofollow">Shop At Tuft &amp; Needle</a>
           </div>
         </article>
 
@@ -612,7 +642,7 @@
               <li>Shoulder or hip pressure</li>
               <li>Combination sleepers who want more cushion</li>
             </ul>
-            <a class="btn block" href="#" data-link="tnMint" rel="sponsored nofollow">See T&amp;N Mint Price →</a>
+            <a class="btn block" href="#" data-link="tnMint" rel="sponsored nofollow">Shop At Tuft &amp; Needle</a>
           </div>
         </article>
 
@@ -629,7 +659,7 @@
               <li>Combination sleepers</li>
               <li>Anyone who likes a little bounce</li>
             </ul>
-            <a class="btn block" href="#" data-link="tnHybrid" rel="sponsored nofollow">See T&amp;N Hybrid Price →</a>
+            <a class="btn block" href="#" data-link="tnHybrid" rel="sponsored nofollow">Shop At Tuft &amp; Needle</a>
           </div>
         </article>
 
@@ -824,7 +854,7 @@
       <div class="final-box">
         <h2>Ready to See If Tuft &amp; Needle Is Right for You?</h2>
         <p>See current models, prices and offers directly from Tuft &amp; Needle. Every mattress comes with a 100-night trial, so you can decide at home.</p>
-        <a class="btn lg" href="#" data-link="tn" rel="sponsored nofollow">Check Today's Tuft &amp; Needle Price →</a>
+        <a class="btn lg" href="#" data-link="tn" rel="sponsored nofollow">Shop At Tuft &amp; Needle</a>
         <p class="fine">Still comparing? <a href="#compare" style="color:#fff">See how all three brands stack up</a>.</p>
       </div>
     </div>
@@ -845,7 +875,7 @@
 
 <div class="sticky-cta" id="sticky-cta" role="complementary" aria-label="Our top pick">
   <div class="txt">#1 Pick: Tuft &amp; Needle</div>
-  <a class="btn sm" href="#" data-link="tn" rel="sponsored nofollow">See Today's Price →</a>
+  <a class="btn sm" href="#" data-link="tn" rel="sponsored nofollow">Shop At Tuft &amp; Needle</a>
   <button class="close" type="button" aria-label="Dismiss">×</button>
 </div>
 
