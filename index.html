@@ -2,13 +2,39 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Bed Review | The Top 3 Mattress Brands of 2026</title>
 <meta name="description" content="We compared Tuft & Needle, Serta, and Beautyrest on comfort, support, cooling, price, trial periods and more, so you can find the right mattress without reading dozens of reviews.">
 <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script>
+  /* ================================================================
+     EDIT HERE: affiliate links, current offer, and T&N facts.
+     Everything on the page that links out or shows the offer reads
+     from this one object.
+     ================================================================ */
+  window.BR_CONFIG = {
+    links: {
+      tn:          '#',  // Tuft & Needle main affiliate link
+      tnOriginal:  '#',  // T&N Original Mattress II
+      tnMint:      '#',  // T&N Mint Mattress II
+      tnHybrid:    '#',  // T&N Original Hybrid Mattress II
+      serta:       '#',
+      beautyrest:  '#'
+    },
+    tnOffer: {
+      active: true,      // set to false to hide the offer box entirely
+      label: 'Current Tuft & Needle Offer',
+      text: 'Free T&N Down Alternative Pillow Set with any mattress purchase.',
+      note: 'Offer shown on tuftandneedle.com as of Oct 2, 2026. Terms may change.',
+      cta: 'See Offer at Tuft & Needle →'
+    }
+  };
+</script>
+
 <style>
   :root {
     --blue: #2f4679;
@@ -37,18 +63,23 @@
   .section.alt { background: var(--blue-soft); }
   .section-intro { color: var(--muted); max-width: 680px; margin-bottom: 32px; }
   .eyebrow { display: inline-block; font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--blue); margin-bottom: 8px; }
+  .center { text-align: center; }
+  .center .section-intro { margin-left: auto; margin-right: auto; }
+  .cta-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 28px; }
+  .cta-row .fine { width: 100%; text-align: center; font-size: .78rem; color: var(--muted); }
 
-  /* Buttons */
-  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--blue); color: var(--white); text-decoration: none; font-weight: 700; padding: 14px 22px; border-radius: 10px; transition: background .15s, transform .15s; border: 0; cursor: pointer; font-size: 1rem; text-align: center; line-height: 1.3; }
-  .btn:hover { background: var(--blue-dark); transform: translateY(-1px); }
+  /* Buttons: primary = Tuft & Needle, secondary (ghost) = everyone else */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--blue); color: var(--white); text-decoration: none; font-weight: 700; padding: 14px 22px; border-radius: 10px; transition: background .15s, transform .15s, color .15s; border: 2px solid var(--blue); cursor: pointer; font-size: 1rem; text-align: center; line-height: 1.3; }
+  .btn:hover { background: var(--blue-dark); border-color: var(--blue-dark); transform: translateY(-1px); }
   .btn.block { width: 100%; }
-  .btn.lg { padding: 17px 22px; font-size: 1.06rem; box-shadow: 0 6px 16px rgba(47, 70, 121, .28); }
-  .btn.sm { padding: 10px 14px; font-size: .88rem; }
-  .btn.ghost { background: transparent; color: var(--blue); border: 2px solid var(--blue); }
-  .btn.ghost:hover { background: var(--blue); color: var(--white); }
+  .btn.lg { padding: 16px 24px; font-size: 1.05rem; box-shadow: 0 6px 16px rgba(47, 70, 121, .25); }
+  .btn.sm { padding: 9px 14px; font-size: .88rem; }
+  .btn.ghost { background: transparent; color: var(--blue); box-shadow: none; }
+  .btn.ghost:hover { background: var(--blue-soft); color: var(--blue-dark); }
 
   /* Header */
   .disclosure-bar { background: var(--blue); color: #dfe6f4; font-size: .78rem; text-align: center; padding: 7px 16px; }
+  .disclosure-bar a { color: var(--white); }
   header.site { background: var(--white); border-bottom: 1px solid var(--blue-line); position: sticky; top: 0; z-index: 20; }
   header.site .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; }
   header.site .logo img { height: 44px; width: auto; }
@@ -56,6 +87,7 @@
   header.site nav a { text-decoration: none; color: var(--ink); font-weight: 600; font-size: .93rem; }
   header.site nav a:hover { color: var(--blue); }
   @media (max-width: 760px) { header.site nav { display: none; } header.site .logo img { height: 36px; } }
+  section[id] { scroll-margin-top: 80px; }
 
   /* Hero */
   .hero { background: linear-gradient(180deg, var(--blue-soft) 0%, var(--white) 100%); padding: 56px 0 48px; text-align: center; }
@@ -66,39 +98,60 @@
   .hero-meta span { display: inline-flex; align-items: center; gap: 6px; }
   .hero-meta svg { width: 16px; height: 16px; color: var(--blue); }
 
-  /* Quick picks */
-  .picks { display: grid; grid-template-columns: 1.22fr 1fr 1fr; gap: 20px; margin-top: 40px; text-align: left; align-items: stretch; }
-  .pick { background: var(--white); border: 1px solid var(--blue-line); border-radius: var(--radius); padding: 26px 22px 22px; position: relative; box-shadow: var(--shadow); display: flex; flex-direction: column; }
-  .pick.top { border: 3px solid var(--blue); background: linear-gradient(180deg, #f5f8fd 0%, var(--white) 40%); box-shadow: 0 14px 36px rgba(47, 70, 121, .20); padding: 30px 24px 24px; }
-  .pick .rank { position: absolute; top: -14px; left: 20px; background: var(--blue); color: var(--white); font-weight: 800; font-size: .8rem; padding: 4px 12px; border-radius: 999px; }
-  .pick.top .rank { background: var(--gold); color: #3a2a00; font-size: .88rem; padding: 6px 16px; top: -17px; box-shadow: 0 4px 10px rgba(224, 164, 34, .35); }
-  .seal { position: absolute; top: 18px; right: 18px; width: 74px; height: 74px; border-radius: 50%; background: var(--blue); color: var(--white); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; font-weight: 800; font-size: .62rem; line-height: 1.15; text-transform: uppercase; letter-spacing: .04em; box-shadow: 0 0 0 4px var(--white), 0 0 0 6px var(--gold); }
-  .seal b { font-size: 1.15rem; letter-spacing: 0; }
-  .pick .award { font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--blue); margin: 6px 0 14px; }
-  .pick.top .award { font-size: .86rem; }
-  .logo-box { height: 64px; display: flex; align-items: center; margin-bottom: 14px; }
-  .logo-box img { max-height: 100%; max-width: 190px; width: auto; object-fit: contain; }
-  .logo-box img.tn { width: 190px; max-height: none; }
-  .pick.top .logo-box img.tn { width: 220px; }
-  .score-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
-  .score { background: var(--blue); color: var(--white); font-weight: 800; font-size: 1.4rem; border-radius: 10px; padding: 6px 12px; line-height: 1.1; }
-  .score-row small { color: var(--muted); font-size: .82rem; line-height: 1.3; }
-  .stars { color: var(--gold); letter-spacing: 1px; font-size: .95rem; }
-  .pick p { font-size: .94rem; color: var(--muted); margin-bottom: 14px; }
-  .why-one { background: var(--white); border: 1px solid var(--blue-line); border-radius: 10px; padding: 14px 16px; margin-bottom: 14px; }
-  .why-one h3 { font-size: .95rem; margin-bottom: 4px; }
-  .why-one p { font-size: .88rem; margin-bottom: 8px; }
-  .checks { list-style: none; display: grid; gap: 5px; font-size: .9rem; font-weight: 600; color: var(--ink); }
-  .checks li { display: flex; gap: 8px; align-items: flex-start; }
-  .checks li::before { content: "✓"; color: var(--green); font-weight: 800; }
-  .facts { display: flex; flex-wrap: wrap; gap: 4px 0; font-size: .84rem; font-weight: 700; color: var(--blue-dark); margin: auto 0 12px; padding-top: 4px; }
-  .facts span:not(:last-child)::after { content: "•"; color: var(--blue-line); margin: 0 8px; }
-  @media (max-width: 960px) { .picks { grid-template-columns: 1fr; gap: 30px; max-width: 560px; margin-left: auto; margin-right: auto; } .seal { width: 64px; height: 64px; } }
+  /* Top 3 */
+  .picks { display: grid; grid-template-columns: 1.55fr 1fr; gap: 22px; margin-top: 40px; text-align: left; align-items: start; }
+  .picks-side { display: grid; gap: 22px; }
+  .pick { background: var(--white); border: 1px solid var(--blue-line); border-radius: var(--radius); padding: 24px 22px 22px; position: relative; box-shadow: var(--shadow); }
+  .pick .rank { position: absolute; top: -13px; left: 20px; background: var(--blue); color: var(--white); font-weight: 800; font-size: .78rem; padding: 4px 12px; border-radius: 999px; }
+  .pick.top { border: 2px solid var(--blue); box-shadow: 0 14px 36px rgba(47, 70, 121, .18); padding: 32px 28px 26px; }
+  .pick.top .rank { background: var(--gold); color: #3a2a00; font-size: .85rem; padding: 6px 14px; top: -16px; }
+  .pick-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 12px; }
+  .award { font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--blue); }
+  .logo-box { height: 56px; display: flex; align-items: center; margin-bottom: 4px; }
+  .logo-box img { max-height: 100%; max-width: 170px; width: auto; object-fit: contain; }
+  .logo-box img.tn { width: 170px; max-height: none; }
+  .pick.top .logo-box { height: 64px; }
+  .pick.top .logo-box img.tn { width: 230px; }
+  .score { background: var(--blue); color: var(--white); font-weight: 800; font-size: 1.35rem; border-radius: 10px; padding: 6px 12px; line-height: 1.1; text-align: center; }
+  .score small { display: block; font-size: .58rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; opacity: .85; margin-top: 2px; }
+  .pick.top .score { font-size: 1.8rem; padding: 8px 14px; }
+  .verdict-line { font-size: 1rem; color: var(--ink); margin-bottom: 16px; }
+  .pick:not(.top) .verdict-line { font-size: .93rem; color: var(--muted); margin-bottom: 12px; }
+  .reasons { list-style: none; display: grid; gap: 8px; margin-bottom: 18px; }
+  .reasons li { display: flex; gap: 10px; align-items: flex-start; font-size: .95rem; }
+  .reasons li b { color: var(--blue-dark); }
+  .reasons li::before { content: "✓"; flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--green); color: var(--white); font-size: .72rem; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; margin-top: 2px; }
+  .facts-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 16px; }
+  .facts-grid div { background: var(--blue-soft); border-radius: 10px; padding: 10px 8px; text-align: center; font-size: .74rem; color: var(--muted); line-height: 1.3; }
+  .facts-grid b { display: block; font-size: .95rem; color: var(--blue-dark); margin-bottom: 2px; }
+  .attrs { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+  .attrs li { font-size: .78rem; font-weight: 600; color: var(--blue-dark); background: var(--blue-soft); border-radius: 999px; padding: 4px 10px; }
+  .offer { border: 1px dashed #d9b25a; background: var(--gold-soft); border-radius: 12px; padding: 14px 16px; margin-bottom: 16px; display: flex; gap: 12px; align-items: flex-start; }
+  .offer[hidden] { display: none; }
+  .offer .ico { flex-shrink: 0; width: 34px; height: 34px; border-radius: 9px; background: var(--white); color: #9a6b00; display: flex; align-items: center; justify-content: center; }
+  .offer .ico svg { width: 18px; height: 18px; }
+  .offer .lbl { font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; color: #8a5f00; }
+  .offer .txt { font-weight: 700; color: var(--ink); font-size: .96rem; line-height: 1.35; margin: 2px 0 4px; }
+  .offer .note { font-size: .72rem; color: var(--muted); }
+  .offer a { font-size: .84rem; font-weight: 700; }
+  @media (max-width: 900px) { .picks { grid-template-columns: 1fr; gap: 30px; max-width: 620px; margin-left: auto; margin-right: auto; } }
+  @media (max-width: 520px) { .facts-grid { grid-template-columns: repeat(2, 1fr); } .pick.top { padding: 30px 18px 22px; } .pick.top .logo-box img.tn { width: 190px; } }
+
+  /* Why #1: benefit blocks */
+  .benefits { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .benefit { background: var(--white); border: 1px solid var(--blue-line); border-radius: var(--radius); padding: 26px; }
+  .benefit .num { font-size: .75rem; font-weight: 800; letter-spacing: .08em; color: var(--blue); text-transform: uppercase; }
+  .benefit h3 { font-size: 1.2rem; margin: 10px 0 8px; display: flex; align-items: center; gap: 12px; }
+  .benefit h3 .ico { flex-shrink: 0; width: 40px; height: 40px; border-radius: 10px; background: var(--blue); color: var(--white); display: inline-flex; align-items: center; justify-content: center; }
+  .benefit h3 .ico svg { width: 20px; height: 20px; }
+  .benefit p { font-size: .95rem; color: #39404f; }
+  .benefit .src { display: block; font-size: .74rem; color: var(--muted); margin-top: 10px; }
+  @media (max-width: 760px) { .benefits { grid-template-columns: 1fr; } .benefit { padding: 20px; } }
 
   /* Comparison table */
   .table-scroll { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--blue-line); background: var(--white); box-shadow: var(--shadow); }
-  table.compare { width: 100%; border-collapse: collapse; min-width: 680px; font-size: .94rem; }
-  table.compare th, table.compare td { padding: 14px 16px; text-align: center; border-bottom: 1px solid var(--blue-line); }
+  table.compare { width: 100%; border-collapse: collapse; min-width: 680px; font-size: .93rem; }
+  table.compare th, table.compare td { padding: 13px 16px; text-align: center; border-bottom: 1px solid var(--blue-line); }
   table.compare thead th { background: var(--blue); color: var(--white); font-weight: 700; vertical-align: bottom; }
   table.compare thead th.top-col { background: var(--blue-dark); box-shadow: inset 0 4px 0 var(--gold); }
   table.compare thead th .logo-chip { background: var(--white); border-radius: 8px; height: 50px; display: flex; align-items: center; justify-content: center; padding: 6px 10px; margin: 0 auto 8px; max-width: 170px; }
@@ -106,7 +159,7 @@
   table.compare thead th .logo-chip img.tn { width: 140px; max-height: none; }
   table.compare tbody th { text-align: left; font-weight: 600; color: var(--blue-dark); background: #f7f9fc; white-space: nowrap; }
   table.compare tbody tr:last-child td, table.compare tbody tr:last-child th { border-bottom: 0; }
-  table.compare td.top-col { background: #fafbfe; }
+  table.compare td.top-col { background: #f5f8fd; font-weight: 600; }
   table.compare td.win { background: #e7f4ec; color: #145c33; font-weight: 700; }
   table.compare td.win::before { content: "✓ "; color: var(--green); }
   .pill { display: inline-block; font-size: .78rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: var(--blue-soft); color: var(--blue); }
@@ -116,69 +169,36 @@
   .table-hint { display: none; }
   @media (max-width: 720px) { .table-hint { display: inline; } }
 
-  /* Reviews */
-  .review { background: var(--white); border: 1px solid var(--blue-line); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; margin-bottom: 36px; scroll-margin-top: 90px; }
-  .review.first { border: 2px solid var(--blue); }
-  .review-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; padding: 26px 28px; border-bottom: 1px solid var(--blue-line); }
-  .review-head .left { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-  .rank-big { width: 52px; height: 52px; border-radius: 50%; background: var(--blue); color: var(--white); font-weight: 800; font-size: 1.3rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .review.first .rank-big { background: var(--gold); color: #3a2a00; }
-  .review-head .logo-box { margin: 0; height: 54px; }
-  .review-head .award { font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--blue); }
-  .score-big { text-align: center; }
-  .score-big .num { background: var(--blue); color: var(--white); font-weight: 800; font-size: 2rem; border-radius: 12px; padding: 8px 16px; line-height: 1; display: inline-block; }
-  .score-big small { display: block; font-size: .75rem; color: var(--muted); margin-top: 6px; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; }
+  /* Fit / skip and pros / cons (shared two-column block) */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .col-card { background: var(--white); border: 1px solid var(--blue-line); border-radius: var(--radius); padding: 26px; }
+  .col-card.yes { border-top: 4px solid var(--green); }
+  .col-card.no { border-top: 4px solid var(--muted); }
+  .col-card h3 { font-size: 1.15rem; margin-bottom: 14px; }
+  .col-card ul { list-style: none; display: grid; gap: 10px; }
+  .col-card li { display: flex; gap: 10px; align-items: flex-start; font-size: .95rem; }
+  .col-card li::before { flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; font-size: .7rem; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; margin-top: 2px; color: var(--white); }
+  .col-card.yes li::before { content: "✓"; background: var(--green); }
+  .col-card.no li::before { content: "–"; background: var(--muted); }
+  .col-card .alt-note { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--blue-line); font-size: .86rem; color: var(--muted); }
+  @media (max-width: 760px) { .two-col { grid-template-columns: 1fr; } .col-card { padding: 20px; } }
 
-  .group-label { display: flex; align-items: center; gap: 10px; font-size: .78rem; font-weight: 800; text-transform: uppercase; letter-spacing: .09em; color: var(--blue); margin-bottom: 14px; }
-  .group-label::after { content: ""; flex: 1; height: 1px; background: var(--blue-line); }
-  .verdict { padding: 24px 28px; background: #f7f9fc; border-bottom: 1px solid var(--blue-line); }
-  .verdict p { font-size: 1.08rem; color: var(--ink); max-width: 900px; }
-  .review-groups { display: grid; grid-template-columns: 1fr 1fr; }
-  .review-groups > div { padding: 26px 28px; }
-  .review-groups > div + div { border-left: 1px solid var(--blue-line); }
-  .firm-scale { position: relative; height: 10px; border-radius: 999px; background: var(--blue-soft); margin: 4px 0 6px; }
-  .firm-scale i { position: absolute; top: 0; bottom: 0; border-radius: 999px; background: var(--blue); }
-  .firm-labels { display: flex; justify-content: space-between; font-size: .75rem; color: var(--muted); margin-bottom: 20px; }
-  .firm-labels b { color: var(--blue-dark); }
-  .ratings { list-style: none; display: grid; gap: 10px; }
-  .ratings li { display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: .93rem; }
-  .ratings .lvl { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: .85rem; color: var(--blue-dark); }
-  .meter { display: inline-flex; gap: 3px; }
-  .meter s { width: 14px; height: 8px; border-radius: 3px; background: var(--blue-soft); text-decoration: none; }
-  .meter[data-v="5"] s, .meter[data-v="4"] s:nth-child(-n+4), .meter[data-v="3"] s:nth-child(-n+3), .meter[data-v="2"] s:nth-child(-n+2) { background: var(--blue); }
-  .fit-lists { display: grid; gap: 20px; }
-  .fit-lists h4 { font-size: .9rem; color: var(--blue-dark); margin-bottom: 8px; }
-  .fit-lists ul { list-style: none; display: grid; gap: 8px; font-size: .93rem; }
-  .fit-lists li { display: flex; gap: 8px; align-items: flex-start; }
-  .fit-lists li::before { flex-shrink: 0; font-weight: 800; width: 18px; height: 18px; border-radius: 50%; font-size: .7rem; display: inline-flex; align-items: center; justify-content: center; margin-top: 3px; color: var(--white); }
-  .fit-lists .yes li::before { content: "✓"; background: var(--green); }
-  .fit-lists .no li::before { content: "✕"; background: var(--red); }
-  .why { padding: 0 28px 26px; }
-  .why p { font-size: .96rem; color: #39404f; margin-bottom: 10px; max-width: 900px; }
-  .buy { display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; align-items: center; padding: 24px 28px; background: var(--blue-soft); border-top: 1px solid var(--blue-line); }
-  .buy.first { background: var(--gold-soft); }
-  .prices { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
-  .prices div { background: var(--white); border: 1px solid var(--blue-line); border-radius: 10px; padding: 10px 6px; text-align: center; font-size: .8rem; color: var(--muted); }
-  .prices div b { display: block; font-size: 1rem; color: var(--blue-dark); }
-  .prices div.hl { border: 2px solid var(--blue); }
-  .policy { font-size: .84rem; color: var(--muted); margin-top: 10px; }
-  .policy b { color: var(--blue-dark); }
-  .buy .note { font-size: .74rem; color: var(--muted); margin-top: 8px; text-align: center; }
-  @media (max-width: 860px) {
-    .review-groups { grid-template-columns: 1fr; }
-    .review-groups > div + div { border-left: 0; border-top: 1px solid var(--blue-line); }
-    .review-head, .verdict, .review-groups > div, .why, .buy { padding-left: 18px; padding-right: 18px; }
-    .buy { grid-template-columns: 1fr; }
-  }
-  @media (max-width: 420px) { .prices { grid-template-columns: repeat(2, 1fr); } }
-
-  /* Matrix */
-  .matrix { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; }
-  .match { background: var(--white); border: 1px solid var(--blue-line); border-radius: 12px; padding: 16px 18px; display: flex; justify-content: space-between; align-items: center; gap: 12px; text-decoration: none; color: inherit; transition: border-color .15s, box-shadow .15s; }
-  .match:hover { border-color: var(--blue); box-shadow: var(--shadow); }
-  .match .if { font-size: .8rem; color: var(--muted); }
-  .match .who { font-weight: 700; color: var(--blue-dark); }
-  .match .brand { font-weight: 700; font-size: .85rem; color: var(--white); background: var(--blue); padding: 5px 10px; border-radius: 8px; white-space: nowrap; }
+  /* T&N model cards */
+  .models { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .model { background: var(--white); border: 1px solid var(--blue-line); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; box-shadow: var(--shadow); }
+  .model-img { background: linear-gradient(180deg, #f5f8fd, var(--blue-soft)); padding: 26px 22px 18px; border-bottom: 1px solid var(--blue-line); }
+  .model-img svg { width: 100%; height: auto; display: block; }
+  .model-img figcaption { font-size: .7rem; color: var(--muted); text-align: center; margin-top: 8px; }
+  .model-body { padding: 22px; display: flex; flex-direction: column; flex: 1; }
+  .model-body .award { margin-bottom: 4px; }
+  .model-body h3 { font-size: 1.2rem; margin-bottom: 4px; }
+  .model-body .spec { font-size: .82rem; color: var(--muted); margin-bottom: 12px; }
+  .model-body p { font-size: .93rem; color: #39404f; margin-bottom: 14px; }
+  .model-body ul { list-style: none; display: grid; gap: 6px; margin-bottom: 18px; font-size: .9rem; }
+  .model-body li { display: flex; gap: 8px; }
+  .model-body li::before { content: "✓"; color: var(--green); font-weight: 800; }
+  .model-body .btn { margin-top: auto; }
+  @media (max-width: 900px) { .models { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; } }
 
   /* Guide */
   .guide-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
@@ -189,17 +209,30 @@
   .guide-card dl { display: grid; gap: 12px; font-size: .93rem; }
   .guide-card dt { font-weight: 700; color: var(--blue-dark); }
   .guide-card dd { color: var(--muted); }
+  .guide-card p { font-size: .93rem; color: var(--muted); }
   .firm-chart { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 14px; }
   .firm-chart div { border-radius: 8px; padding: 10px 6px; text-align: center; font-size: .8rem; color: var(--white); }
   .firm-chart b { display: block; font-size: 1rem; }
-  .guide-card p { font-size: .93rem; color: var(--muted); }
+  .rec { display: inline-block; margin-top: 4px; font-size: .8rem; font-weight: 700; color: var(--blue); background: var(--blue-soft); border-radius: 6px; padding: 2px 8px; text-decoration: none; }
+  .rec:hover { background: var(--blue-line); }
+  .rec-table { width: 100%; border-collapse: collapse; font-size: .93rem; }
+  .rec-table td { padding: 10px 0; border-bottom: 1px solid var(--blue-line); }
+  .rec-table tr:last-child td { border-bottom: 0; }
+  .rec-table td:first-child { font-weight: 700; color: var(--blue-dark); }
+  .rec-table td:last-child { text-align: right; }
+  .guide-note { font-size: .82rem; color: var(--muted); margin-top: 16px; font-style: italic; }
   @media (max-width: 760px) { .guide-grid { grid-template-columns: 1fr; } .guide-card { padding: 20px; } }
 
-  .callout { margin-top: 28px; background: var(--blue); color: var(--white); border-radius: var(--radius); padding: 28px; }
-  .callout h3 { color: var(--white); font-size: 1.3rem; margin-bottom: 10px; }
-  .callout p { color: #dfe6f4; font-size: .96rem; margin-bottom: 14px; }
-  .callout .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-  .callout .chips span { background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.25); padding: 6px 12px; border-radius: 999px; font-size: .85rem; font-weight: 600; }
+  /* Purchase confidence */
+  .assure { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .assure-card { background: var(--white); border: 1px solid var(--blue-line); border-radius: var(--radius); padding: 22px 20px; }
+  .assure-card .ico { width: 42px; height: 42px; border-radius: 11px; background: var(--blue-soft); color: var(--blue); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+  .assure-card .ico svg { width: 22px; height: 22px; }
+  .assure-card h3 { font-size: 1.05rem; margin-bottom: 6px; }
+  .assure-card p { font-size: .88rem; color: var(--muted); }
+  .assure-src { font-size: .78rem; color: var(--muted); margin-top: 14px; }
+  @media (max-width: 900px) { .assure { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .assure { grid-template-columns: 1fr; } }
 
   /* Method */
   .method { display: grid; grid-template-columns: 1.1fr 1fr; gap: 36px; align-items: start; }
@@ -222,9 +255,14 @@
   .faq details[open] summary::after { content: "–"; }
   .faq details p { padding: 0 0 18px; color: var(--muted); font-size: .96rem; }
 
-  /* Final CTA + footer */
-  .final { text-align: center; }
-  .final .row { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 22px; }
+  /* Final CTA */
+  .final-box { background: var(--blue); border-radius: 20px; padding: 48px 28px; text-align: center; color: var(--white); }
+  .final-box h2 { color: var(--white); }
+  .final-box p { color: #dfe6f4; max-width: 620px; margin: 0 auto 24px; }
+  .final-box .btn { background: var(--white); color: var(--blue-dark); border-color: var(--white); }
+  .final-box .btn:hover { background: var(--blue-soft); }
+  .final-box .fine { font-size: .78rem; color: #b9c5de; margin-top: 14px; }
+
   footer { background: var(--blue-dark); color: #c3cde2; padding: 40px 0; font-size: .84rem; }
   footer .top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 18px; }
   footer .logo-white { background: var(--white); border-radius: 10px; padding: 8px 14px; display: inline-block; }
@@ -237,26 +275,25 @@
   /* Sticky mobile CTA */
   .sticky-cta { display: none; }
   @media (max-width: 760px) {
-    .sticky-cta { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; align-items: center; gap: 10px; background: var(--white); border-top: 1px solid var(--blue-line); box-shadow: 0 -6px 20px rgba(28, 35, 51, .12); padding: 10px 12px 10px 16px; padding-bottom: calc(10px + env(safe-area-inset-bottom)); transform: translateY(110%); transition: transform .25s ease; }
+    .sticky-cta { display: flex; position: fixed; left: 8px; right: 8px; bottom: calc(8px + env(safe-area-inset-bottom)); z-index: 30; align-items: center; gap: 10px; background: var(--white); border: 1px solid var(--blue-line); border-radius: 12px; box-shadow: 0 8px 24px rgba(28, 35, 51, .18); padding: 8px 6px 8px 14px; transform: translateY(calc(100% + 24px)); transition: transform .25s ease; }
     .sticky-cta.show { transform: translateY(0); }
-    .sticky-cta .txt { flex: 1; min-width: 0; font-size: .78rem; color: var(--muted); line-height: 1.3; }
-    .sticky-cta .txt b { display: block; font-size: .9rem; color: var(--blue-dark); }
-    .sticky-cta .close { background: none; border: 0; color: var(--muted); font-size: 1.3rem; line-height: 1; padding: 6px; cursor: pointer; }
+    .sticky-cta .txt { flex: 1; min-width: 0; font-size: .86rem; font-weight: 700; color: var(--blue-dark); line-height: 1.25; }
+    .sticky-cta .close { background: none; border: 0; color: var(--muted); font-size: 1.25rem; line-height: 1; padding: 6px 8px; cursor: pointer; }
     body.has-sticky footer { padding-bottom: 96px; }
   }
 </style>
 </head>
 <body>
 
-<div class="disclosure-bar">Advertiser disclosure: Bed Review may earn a commission when you buy through links on this page. This never affects our rankings.</div>
+<div class="disclosure-bar">Advertiser disclosure: Bed Review may earn a commission when you buy through links on this page. This never affects our rankings. <a href="#method">How we rank</a></div>
 
 <header class="site">
   <div class="wrap">
     <a class="logo" href="#top" aria-label="Bed Review home"><img src="assets/logo.svg" alt="Bed Review"></a>
     <nav aria-label="Primary">
+      <a href="#top3">Top 3</a>
       <a href="#compare">Compare</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#match">Find Your Match</a>
+      <a href="#models">T&amp;N Models</a>
       <a href="#guide">Buying Guide</a>
       <a href="#faq">FAQ</a>
     </nav>
@@ -265,12 +302,12 @@
 
 <main id="top">
 
-  <!-- Hero + quick picks -->
-  <section class="hero">
+  <!-- 1. Hero + 2. Top 3 -->
+  <section class="hero" id="top3">
     <div class="wrap">
       <span class="eyebrow">Updated October 2026</span>
       <h1>The Top 3 Mattress Brands of 2026</h1>
-      <p class="lead">We compared the mattresses worth considering on comfort, support, cooling, price, trial periods and more, so you can find the right one without reading dozens of reviews.</p>
+      <p class="lead">We compared the mattresses worth considering on comfort, support, cooling, price, trial periods and more, so you can narrow down your options without reading dozens of reviews.</p>
       <p class="tagline">We did the research. You make the choice.</p>
       <div class="hero-meta">
         <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>3 brands, side by side</span>
@@ -279,317 +316,313 @@
       </div>
 
       <div class="picks" id="picks">
+        <!-- #1 Tuft & Needle -->
         <article class="pick top">
-          <span class="rank">★ Our #1 Pick</span>
-          <div class="seal" aria-hidden="true"><b>#1</b>Best<br>Overall</div>
-          <div class="award">Best Overall</div>
-          <div class="logo-box"><img class="tn" src="assets/tuft-needle.webp" alt="Tuft &amp; Needle"></div>
-          <div class="score-row"><span class="score">9.7</span><small><span class="stars">★★★★★</span><br>Bed Review score</small></div>
-          <p><strong>Best if you</strong> want balanced comfort, strong cooling and support without paying premium-mattress prices.</p>
-          <div class="why-one">
-            <h3>Why it's our #1</h3>
-            <p>The best balance of comfort, cooling, price and versatility of the brands we compared.</p>
-            <ul class="checks">
-              <li>Works for most sleep styles</li>
-              <li>Excellent cooling &amp; support</li>
-              <li>Strong value for the price</li>
-            </ul>
+          <span class="rank">#1 Top Pick</span>
+          <div class="pick-head">
+            <div>
+              <div class="award">Best Overall</div>
+              <div class="logo-box"><img class="tn" src="assets/tuft-needle.webp" alt="Tuft &amp; Needle"></div>
+            </div>
+            <div class="score">9.7<small>Bed Review<br>score</small></div>
           </div>
-          <div class="facts"><span>From ~$795</span><span>100-Night Trial</span><span>Free Shipping</span></div>
-          <a class="btn block lg" href="#" rel="sponsored nofollow">See Today's Tuft &amp; Needle Price →</a>
+          <p class="verdict-line">Responsive, cool-sleeping foam and hybrid mattresses that suit most sleep styles, at prices well below premium brands.</p>
+          <ul class="reasons">
+            <li><span><b>Responsive feel:</b> supportive foam you move easily on, not sink into</span></li>
+            <li><span><b>Built to sleep cool:</b> gel- and graphite-infused foam plus a cooling cover</span></li>
+            <li><span><b>Strong value:</b> a simple lineup, with a queen starting at $699</span></li>
+          </ul>
+          <div class="facts-grid">
+            <div><b>$699</b>Queen, from</div>
+            <div><b>100 nights</b>Sleep trial</div>
+            <div><b>10 years</b>Limited warranty</div>
+            <div><b>Free</b>Shipping &amp; returns</div>
+          </div>
+          <div class="offer" data-offer hidden>
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 12v9H4v-9M2 7h20v5H2zM12 21V7M12 7H7.5a2.5 2.5 0 1 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 1 0 0-5C13 2 12 7 12 7z"/></svg></span>
+            <div>
+              <div class="lbl" data-offer-label></div>
+              <div class="txt" data-offer-text></div>
+              <a href="#" data-link="tn" rel="sponsored nofollow" data-offer-cta></a>
+              <div class="note" data-offer-note></div>
+            </div>
+          </div>
+          <a class="btn block lg" href="#" data-link="tn" rel="sponsored nofollow">See Today's Tuft &amp; Needle Price →</a>
         </article>
-        <article class="pick">
-          <span class="rank">#2</span>
-          <div class="award">Best for Side Sleepers</div>
-          <div class="logo-box"><img src="assets/serta.png" alt="Serta"></div>
-          <div class="score-row"><span class="score">9.3</span><small><span class="stars">★★★★½</span><br>Bed Review score</small></div>
-          <p><strong>Best if you</strong> sleep mostly on your side or share the bed and want deep pressure relief with little motion transfer.</p>
-          <div class="facts"><span>From ~$1,000</span><span>Up to 120-Night Trial</span></div>
-          <a class="btn block" href="#" rel="sponsored nofollow">Check Serta's Current Price →</a>
-        </article>
-        <article class="pick">
-          <span class="rank">#3</span>
-          <div class="award">Best Premium Hybrid</div>
-          <div class="logo-box"><img src="assets/beautyrest.png" alt="Beautyrest"></div>
-          <div class="score-row"><span class="score">9.1</span><small><span class="stars">★★★★½</span><br>Bed Review score</small></div>
-          <p><strong>Best if you</strong> want the bounce and edge support of pocketed coils, or you're a heavier sleeper who needs extra support.</p>
-          <div class="facts"><span>From ~$1,600</span><span>Up to 120-Night Trial</span></div>
-          <a class="btn block" href="#" rel="sponsored nofollow">Check Beautyrest's Current Price →</a>
-        </article>
+
+        <div class="picks-side">
+          <!-- #2 Serta -->
+          <article class="pick">
+            <span class="rank">#2</span>
+            <div class="pick-head">
+              <div>
+                <div class="award">Best for Side Sleepers</div>
+                <div class="logo-box"><img src="assets/serta.png" alt="Serta"></div>
+              </div>
+              <div class="score">9.3<small>Score</small></div>
+            </div>
+            <p class="verdict-line">Deep, contouring memory foam that excels at pressure relief and keeping a partner's movement to themselves.</p>
+            <ul class="attrs"><li>Excellent pressure relief</li><li>Excellent motion isolation</li><li>100-night trial</li></ul>
+            <a class="btn ghost block sm" href="#" data-link="serta" rel="sponsored nofollow">Check Serta Price →</a>
+          </article>
+          <!-- #3 Beautyrest -->
+          <article class="pick">
+            <span class="rank">#3</span>
+            <div class="pick-head">
+              <div>
+                <div class="award">Best Premium Hybrid</div>
+                <div class="logo-box"><img src="assets/beautyrest.png" alt="Beautyrest"></div>
+              </div>
+              <div class="score">9.1<small>Score</small></div>
+            </div>
+            <p class="verdict-line">Premium pocketed-coil hybrids with a buoyant, traditional feel and the strongest edge support of our three picks.</p>
+            <ul class="attrs"><li>Excellent edge support</li><li>Good for heavier sleepers</li><li>White-glove delivery included</li></ul>
+            <a class="btn ghost block sm" href="#" data-link="beautyrest" rel="sponsored nofollow">Check Beautyrest Price →</a>
+          </article>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Comparison table -->
+  <!-- 4. Why T&N earned #1 -->
+  <section class="section alt" id="why">
+    <div class="wrap">
+      <span class="eyebrow">Our #1 pick, explained</span>
+      <h2>Why Tuft &amp; Needle Earned Our #1 Spot</h2>
+      <p class="section-intro">Tuft &amp; Needle doesn't win every category. It's the brand that gets the most important things right for the widest range of sleepers.</p>
+      <div class="benefits">
+        <div class="benefit">
+          <span class="num">01</span>
+          <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 17c3-4 6-4 9 0s6 4 9 0M3 11c3-4 6-4 9 0s6 4 9 0"/></svg></span>Responsive, Not Sink-In Foam</h3>
+          <p>Every T&amp;N mattress uses its own T&amp;N Adaptive® foam. Traditional memory foam slowly molds around you and is slow to spring back. Adaptive foam cushions you but responds right away, so it's easy to roll over and you don't feel "stuck" in the bed.</p>
+          <span class="src">Tuft &amp; Needle says Adaptive® foam has 35% more responsiveness than memory foam.</span>
+        </div>
+        <div class="benefit">
+          <span class="num">02</span>
+          <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M4.9 4.9l14.2 14.2M2 12h20M4.9 19.1 19.1 4.9"/></svg></span>Built to Sleep Cooler</h3>
+          <p>All-foam beds can trap heat. T&amp;N's Adaptive® foam is more breathable than standard memory foam and is infused with cooling gel and heat-conducting graphite to pull warmth away from your body. Current models also add a cooling cover.</p>
+          <span class="src">Tuft &amp; Needle says it has 25% more airflow than memory foam.</span>
+        </div>
+        <div class="benefit">
+          <span class="num">03</span>
+          <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5"/></svg></span>Balanced Pressure Relief</h3>
+          <p>The comfort layer softens pressure at the shoulders and hips. A firmer support foam (and coils, in the hybrids) keeps your spine aligned underneath. The result is cushioning without the hammock-like sag that can cause morning stiffness.</p>
+        </div>
+        <div class="benefit">
+          <span class="num">04</span>
+          <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 12V8H6a2 2 0 0 1 0-4h12v4M4 6v12a2 2 0 0 0 2 2h14v-4"/><path d="M18 12a2 2 0 0 0 0 4h4v-4z"/></svg></span>Straightforward Value</h3>
+          <p>Instead of dozens of near-identical models with confusing names, Tuft &amp; Needle keeps a short, clear lineup. Each step up adds a feature you can understand, like gel memory foam or coils, and prices stay well below luxury brands.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Comparison -->
   <section class="section" id="compare">
     <div class="wrap">
-      <span class="eyebrow">At a glance</span>
-      <h2>How the Top 3 Compare</h2>
-      <p class="section-intro">The answer before the research. Green marks the winner in each category, and no single brand wins them all.</p>
+      <span class="eyebrow">Side by side</span>
+      <h2>How Tuft &amp; Needle Compares</h2>
+      <p class="section-intro">Green marks the leader in each category. Serta and Beautyrest each win categories of their own, which is why they made our top 3.</p>
 
       <div class="table-scroll">
         <table class="compare">
           <thead>
             <tr>
               <th style="background:var(--blue-dark)"></th>
-              <th class="top-col"><div class="logo-chip"><img class="tn" src="assets/tuft-needle.webp" alt="Tuft &amp; Needle"></div>★ #1 · 9.7</th>
-              <th><div class="logo-chip"><img src="assets/serta.png" alt="Serta"></div>#2 · 9.3</th>
-              <th><div class="logo-chip"><img src="assets/beautyrest.png" alt="Beautyrest"></div>#3 · 9.1</th>
+              <th class="top-col"><div class="logo-chip"><img class="tn" src="assets/tuft-needle.webp" alt="Tuft &amp; Needle"></div>Our #1 Pick</th>
+              <th><div class="logo-chip"><img src="assets/serta.png" alt="Serta"></div>#2</th>
+              <th><div class="logo-chip"><img src="assets/beautyrest.png" alt="Beautyrest"></div>#3</th>
             </tr>
           </thead>
           <tbody>
-            <tr><th>Best for</th><td class="top-col"><span class="pill">Best Overall</span></td><td><span class="pill">Side Sleepers</span></td><td><span class="pill">Premium Hybrid</span></td></tr>
-            <tr><th>Mattress types</th><td class="top-col">Foam &amp; Hybrid</td><td>Memory Foam &amp; Hybrid</td><td>Pocketed-Coil Hybrid</td></tr>
-            <tr><th>Firmness range</th><td class="top-col">5–7/10 · Medium to Med-Firm</td><td>4–7/10 · Plush to Med-Firm</td><td>3–8/10 · Plush to Firm</td></tr>
+            <tr><th>Rank &amp; score</th><td class="top-col">#1 · 9.7</td><td>#2 · 9.3</td><td>#3 · 9.1</td></tr>
+            <tr><th>Best for</th><td class="top-col"><span class="pill">Most sleepers</span></td><td><span class="pill">Side sleepers</span></td><td><span class="pill">Heavier sleepers</span></td></tr>
+            <tr><th>Mattress feel</th><td class="top-col">Responsive, balanced</td><td>Cushioned, contouring</td><td>Buoyant, traditional coil</td></tr>
             <tr><th>Cooling</th><td class="win">Excellent</td><td>Good</td><td>Very Good</td></tr>
             <tr><th>Pressure relief</th><td class="top-col">Very Good</td><td class="win">Excellent</td><td>Very Good</td></tr>
             <tr><th>Motion isolation</th><td class="top-col">Very Good</td><td class="win">Excellent</td><td>Good</td></tr>
             <tr><th>Edge support</th><td class="top-col">Good</td><td>Average</td><td class="win">Excellent</td></tr>
-            <tr><th>Trial</th><td class="top-col">100 Nights</td><td class="win">Up to 120 Nights</td><td class="win">Up to 120 Nights</td></tr>
-            <tr><th>Warranty</th><td class="top-col">10 Years</td><td>10 Years</td><td>10 Years</td></tr>
-            <tr><th>Queen price</th><td class="win">$ · from ~$795</td><td>$$ · from ~$1,000</td><td>$$$ · from ~$1,600</td></tr>
-            <tr><th>Overall value</th><td class="win">Excellent</td><td>Very Good</td><td>Good</td></tr>
+            <tr><th>Price level</th><td class="win">$ · Best value</td><td>$$</td><td>$$$</td></tr>
+            <tr><th>Trial period</th><td class="top-col">100 nights</td><td>100 nights</td><td>100 nights</td></tr>
+            <tr><th>Warranty</th><td class="top-col">10-year limited</td><td>10-year limited</td><td>10-year limited</td></tr>
             <tr><th></th>
-              <td class="top-col"><a class="btn sm" href="#" rel="sponsored nofollow">See Today's Price →</a></td>
-              <td><a class="btn sm ghost" href="#" rel="sponsored nofollow">Check Price →</a></td>
-              <td><a class="btn sm ghost" href="#" rel="sponsored nofollow">Check Price →</a></td>
+              <td class="top-col"><a class="btn sm" href="#" data-link="tn" rel="sponsored nofollow">See Today's Price →</a></td>
+              <td><a class="btn sm ghost" href="#" data-link="serta" rel="sponsored nofollow">Visit Serta →</a></td>
+              <td><a class="btn sm ghost" href="#" data-link="beautyrest" rel="sponsored nofollow">Visit Beautyrest →</a></td>
             </tr>
           </tbody>
         </table>
       </div>
       <div class="table-legend">
-        <span class="key"><i></i>Category winner</span>
-        <span>Ratings reflect each brand's core lineup; exact specs vary by model. <span class="table-hint">Swipe to see all three →</span></span>
+        <span class="key"><i></i>Category leader</span>
+        <span>Ratings reflect each brand's core lineup; individual models vary. Trial and warranty terms are for purchases made on each brand's own site. <span class="table-hint">Swipe to see all three →</span></span>
+      </div>
+      <div class="cta-row">
+        <a class="btn lg" href="#" data-link="tn" rel="sponsored nofollow">See Today's Tuft &amp; Needle Price →</a>
       </div>
     </div>
   </section>
 
-  <!-- Detailed reviews -->
-  <section class="section alt" id="reviews">
+  <!-- 6. Is T&N right for you? -->
+  <section class="section alt" id="fit">
     <div class="wrap">
-      <span class="eyebrow">In-depth reviews</span>
-      <h2>Our Top 3 Mattress Brand Reviews</h2>
-      <p class="section-intro">Each brand gets the same breakdown: the verdict, how it performs, who it's for (and who should skip it), and what you'll pay.</p>
-
-      <!-- #1 Tuft & Needle -->
-      <article class="review first" id="tuft-needle">
-        <div class="review-head">
-          <div class="left">
-            <div class="rank-big">1</div>
-            <div>
-              <div class="logo-box"><img class="tn" src="assets/tuft-needle.webp" alt="Tuft &amp; Needle"></div>
-              <div class="award">★ Best Overall</div>
-            </div>
-          </div>
-          <div class="score-big"><span class="num">9.7</span><small>Bed Review Score</small></div>
+      <span class="eyebrow">Quick gut-check</span>
+      <h2>Is Tuft &amp; Needle Right for You?</h2>
+      <p class="section-intro">No mattress is right for everyone. Here's an honest look at who will love it and who should look elsewhere.</p>
+      <div class="two-col">
+        <div class="col-card yes">
+          <h3>Tuft &amp; Needle Is a Great Fit If…</h3>
+          <ul>
+            <li>You prefer balanced medium to medium-firm comfort</li>
+            <li>You dislike the deep, stuck-in-foam feeling</li>
+            <li>You change positions throughout the night</li>
+            <li>You tend to sleep hot</li>
+            <li>You want strong value without luxury-mattress pricing</li>
+            <li>You want a relatively simple mattress-buying experience</li>
+          </ul>
         </div>
-        <div class="verdict">
-          <div class="group-label">Verdict</div>
-          <p>Balanced, medium-to-medium-firm mattresses with standout cooling and support that suit most back, combination and hot sleepers, at prices well below premium brands.</p>
+        <div class="col-card no">
+          <h3>You May Prefer Something Else If…</h3>
+          <ul>
+            <li>You want an extremely plush, pillowy mattress</li>
+            <li>You love deep, slow-sinking memory foam</li>
+            <li>You want an ultra-firm, traditional innerspring feel</li>
+            <li>You regularly sit or sleep right at the edge of the bed</li>
+          </ul>
+          <p class="alt-note">For a deeper hug and more pressure relief, consider <a href="#top3">Serta</a>. For maximum edge support and a classic coil feel, consider <a href="#top3">Beautyrest</a>.</p>
         </div>
-        <div class="review-groups">
-          <div>
-            <div class="group-label">Performance</div>
-            <div class="firm-scale"><i style="left:44%;width:24%"></i></div>
-            <div class="firm-labels"><span>Soft</span><span>Firmness <b>5–7 / 10</b></span><span>Firm</span></div>
-            <ul class="ratings">
-              <li>Cooling<span class="lvl">Excellent <span class="meter" data-v="5"><s></s><s></s><s></s><s></s><s></s></span></span></li>
-              <li>Pressure relief<span class="lvl">Very Good <span class="meter" data-v="4"><s></s><s></s><s></s><s></s><s></s></span></span></li>
-              <li>Motion isolation<span class="lvl">Very Good <span class="meter" data-v="4"><s></s><s></s><s></s><s></s><s></s></span></span></li>
-              <li>Edge support<span class="lvl">Good <span class="meter" data-v="3"><s></s><s></s><s></s><s></s><s></s></span></span></li>
-              <li>Value<span class="lvl">Excellent <span class="meter" data-v="5"><s></s><s></s><s></s><s></s><s></s></span></span></li>
-            </ul>
-          </div>
-          <div>
-            <div class="group-label">Best for / Skip if</div>
-            <div class="fit-lists">
-              <div class="yes"><h4>Best for</h4><ul><li>Back &amp; combination sleepers</li><li>Hot sleepers</li><li>Couples</li><li>Anyone unsure what they need</li></ul></div>
-              <div class="no"><h4>Skip if</h4><ul><li>You love a plush, sink-in feel</li><li>You're a heavier stomach sleeper who needs firm coil support</li></ul></div>
-            </div>
-          </div>
-        </div>
-        <div class="why">
-          <div class="group-label">Why it's ranked #1</div>
-          <p>Across specifications, policies and customer feedback, Tuft &amp; Needle gets the fundamentals right without charging for marketing. Its adaptive foam sits in the sweet spot between hugging and supportive, so shoulders and hips get relief without the "stuck in the mattress" feel some memory foams are known for.</p>
-          <p>Owners and independent reviewers consistently rate it among the cooler-sleeping foam options, and its medium-firm feel suits the widest range of body types and positions. Not sure what you need? It's the most versatile of our three picks.</p>
-        </div>
-        <div class="buy first">
-          <div>
-            <div class="group-label">Price &amp; policies</div>
-            <div class="prices">
-              <div>Twin<b>~$595</b></div>
-              <div>Full<b>~$695</b></div>
-              <div class="hl">Queen<b>~$795</b></div>
-              <div>King<b>~$995</b></div>
-            </div>
-            <p class="policy"><b>100-night trial</b> · <b>10-year warranty</b> · <b>Free shipping &amp; returns</b> · ~$0.22/night over 10 years</p>
-          </div>
-          <div>
-            <a class="btn block lg" href="#" rel="sponsored nofollow">See Today's Tuft &amp; Needle Price →</a>
-            <p class="note">Starting prices; vary by model and change often.</p>
-          </div>
-        </div>
-      </article>
-
-      <!-- #2 Serta -->
-      <article class="review" id="serta">
-        <div class="review-head">
-          <div class="left">
-            <div class="rank-big">2</div>
-            <div>
-              <div class="logo-box"><img src="assets/serta.png" alt="Serta"></div>
-              <div class="award">Best for Side Sleepers</div>
-            </div>
-          </div>
-          <div class="score-big"><span class="num">9.3</span><small>Bed Review Score</small></div>
-        </div>
-        <div class="verdict">
-          <div class="group-label">Verdict</div>
-          <p>Contouring, pressure-relieving mattresses from one of America's most established brands. Ideal for side sleepers and couples who want a cushioned feel and very little motion transfer.</p>
-        </div>
-        <div class="review-groups">
-          <div>
-            <div class="group-label">Performance</div>
-            <div class="firm-scale"><i style="left:33%;width:35%"></i></div>
-            <div class="firm-labels"><span>Soft</span><span>Firmness <b>4–7 / 10</b></span><span>Firm</span></div>
-            <ul class="ratings">
-              <li>Cooling<span class="lvl">Good <span class="meter" data-v="3"><s></s><s></s><s></s><s></s><s></s></span></span></li>
-              <li>Pressure relief<span class="lvl">Excellent <span class="meter" data-v="5"><s></s><s></s><s></s><s></s><s></s></span></span></li>
-              <li>Motion isolation<span class="lvl">Excellent <span class="meter" data-v="5"><s></s><s></s><s></s><s></s><s></s></span></span></li>
-              <li>Edge support<span class="lvl">Average <span class="meter" data-v="2"><s></s><s></s><s></s><s></s><s></s></span></span></li>
-              <li>Value<span class="lvl">Very Good <span class="meter" data-v="4"><s></s><s></s><s></s><s></s><s></s></span></span></li>
-            </ul>
-          </div>
-          <div>
-            <div class="group-label">Best for / Skip if</div>
-            <div class="fit-lists">
-              <div class="yes"><h4>Best for</h4><ul><li>Side sleepers</li><li>Couples &amp; light sleepers</li><li>Lightweight to average sleepers</li><li>Anyone with shoulder or hip pressure</li></ul></div>
-              <div class="no"><h4>Skip if</h4><ul><li>You sleep on your stomach, since hips may sink too far</li><li>You sit on the edge a lot, since edges compress more</li></ul></div>
-            </div>
-          </div>
-        </div>
-        <div class="why">
-          <div class="group-label">Why it's ranked #2</div>
-          <p>Serta is where we'd point side sleepers first. Its memory foam layers are designed to contour closely around the shoulders and hips, the two places side sleepers feel pressure most, while the support core keeps the spine aligned.</p>
-          <p>That deep contouring also isolates motion well, so a restless partner is less likely to wake you, and you get a long-standing brand sold both online and in stores. It ranks behind Tuft &amp; Needle because it tends to sleep warmer and costs more.</p>
-        </div>
-        <div class="buy">
-          <div>
-            <div class="group-label">Price &amp; policies</div>
-            <div class="prices">
-              <div>Twin<b>~$700</b></div>
-              <div>Full<b>~$850</b></div>
-              <div class="hl">Queen<b>~$1,000</b></div>
-              <div>King<b>~$1,300</b></div>
-            </div>
-            <p class="policy"><b>Up to 120-night trial</b> · <b>10-year warranty</b> · <b>Free shipping</b> · ~$0.27/night over 10 years</p>
-          </div>
-          <div>
-            <a class="btn block" href="#" rel="sponsored nofollow">Check Serta's Current Price →</a>
-            <p class="note">Starting prices; vary by model and change often.</p>
-          </div>
-        </div>
-      </article>
-
-      <!-- #3 Beautyrest -->
-      <article class="review" id="beautyrest">
-        <div class="review-head">
-          <div class="left">
-            <div class="rank-big">3</div>
-            <div>
-              <div class="logo-box"><img src="assets/beautyrest.png" alt="Beautyrest"></div>
-              <div class="award">Best Premium Hybrid</div>
-            </div>
-          </div>
-          <div class="score-big"><span class="num">9.1</span><small>Bed Review Score</small></div>
-        </div>
-        <div class="verdict">
-          <div class="group-label">Verdict</div>
-          <p>Premium pocketed-coil hybrids with excellent edge support and a buoyant, hotel-like feel. The strongest pick for heavier sleepers and anyone who prefers a traditional mattress, if you're willing to pay more.</p>
-        </div>
-        <div class="review-groups">
-          <div>
-            <div class="group-label">Performance</div>
-            <div class="firm-scale"><i style="left:22%;width:56%"></i></div>
-            <div class="firm-labels"><span>Soft</span><span>Firmness <b>3–8 / 10</b></span><span>Firm</span></div>
-            <ul class="ratings">
-              <li>Cooling<span class="lvl">Very Good <span class="meter" data-v="4"><s></s><s></s><s></s><s></s><s></s></span></span></li>
-              <li>Pressure relief<span class="lvl">Very Good <span class="meter" data-v="4"><s></s><s></s><s></s><s></s><s></s></span></span></li>
-              <li>Motion isolation<span class="lvl">Good <span class="meter" data-v="3"><s></s><s></s><s></s><s></s><s></s></span></span></li>
-              <li>Edge support<span class="lvl">Excellent <span class="meter" data-v="5"><s></s><s></s><s></s><s></s><s></s></span></span></li>
-              <li>Value<span class="lvl">Good <span class="meter" data-v="3"><s></s><s></s><s></s><s></s><s></s></span></span></li>
-            </ul>
-          </div>
-          <div>
-            <div class="group-label">Best for / Skip if</div>
-            <div class="fit-lists">
-              <div class="yes"><h4>Best for</h4><ul><li>Heavier sleepers (230 lbs+)</li><li>Stomach &amp; back sleepers</li><li>People who sit on the bed's edge</li><li>Fans of a classic coil feel</li></ul></div>
-              <div class="no"><h4>Skip if</h4><ul><li>You're on a budget: it often costs $500+ more than comparable beds</li><li>You're a light sleeper bothered by a partner's movement</li></ul></div>
-            </div>
-          </div>
-        </div>
-        <div class="why">
-          <div class="group-label">Why it's ranked #3</div>
-          <p>Beautyrest is built around individually wrapped coils, which give its mattresses a lifted, responsive feel, make changing positions easy, and deliver the strongest edge support of our three picks.</p>
-          <p>The coil core also allows more airflow than all-foam designs and holds up well under heavier body weights. It lands third because that construction comes at a noticeably higher price, and coils transfer a little more motion than the foam-forward brands above it.</p>
-        </div>
-        <div class="buy">
-          <div>
-            <div class="group-label">Price &amp; policies</div>
-            <div class="prices">
-              <div>Twin<b>~$1,100</b></div>
-              <div>Full<b>~$1,400</b></div>
-              <div class="hl">Queen<b>~$1,600</b></div>
-              <div>King<b>~$2,000</b></div>
-            </div>
-            <p class="policy"><b>Up to 120-night trial</b> · <b>10-year warranty</b> · <b>Free shipping</b> · ~$0.44/night over 10 years</p>
-          </div>
-          <div>
-            <a class="btn block" href="#" rel="sponsored nofollow">Check Beautyrest's Current Price →</a>
-            <p class="note">Starting prices; vary by model and change often.</p>
-          </div>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- Sleeper-fit matrix -->
-  <section class="section" id="match">
-    <div class="wrap">
-      <span class="eyebrow">Find your match</span>
-      <h2>Which Mattress Is Right for You?</h2>
-      <p class="section-intro">There's no universally "best" mattress, only the best one for you. Find the description that fits and we'll point you to your match.</p>
-      <div class="matrix">
-        <a class="match" href="#serta"><div><div class="if">If you are a…</div><div class="who">Side sleeper</div></div><span class="brand">Serta</span></a>
-        <a class="match" href="#tuft-needle"><div><div class="if">If you are a…</div><div class="who">Back sleeper</div></div><span class="brand">Tuft &amp; Needle</span></a>
-        <a class="match" href="#beautyrest"><div><div class="if">If you are a…</div><div class="who">Stomach sleeper</div></div><span class="brand">Beautyrest</span></a>
-        <a class="match" href="#tuft-needle"><div><div class="if">If you are a…</div><div class="who">Combination sleeper</div></div><span class="brand">Tuft &amp; Needle</span></a>
-        <a class="match" href="#tuft-needle"><div><div class="if">If you are a…</div><div class="who">Hot sleeper</div></div><span class="brand">Tuft &amp; Needle</span></a>
-        <a class="match" href="#serta"><div><div class="if">If you are…</div><div class="who">Sharing the bed</div></div><span class="brand">Serta</span></a>
-        <a class="match" href="#beautyrest"><div><div class="if">If you are a…</div><div class="who">Heavier sleeper</div></div><span class="brand">Beautyrest</span></a>
-        <a class="match" href="#serta"><div><div class="if">If you are a…</div><div class="who">Lightweight sleeper</div></div><span class="brand">Serta</span></a>
-        <a class="match" href="#tuft-needle"><div><div class="if">If you are…</div><div class="who">Budget-conscious</div></div><span class="brand">Tuft &amp; Needle</span></a>
-        <a class="match" href="#serta"><div><div class="if">If you want…</div><div class="who">A softer feel</div></div><span class="brand">Serta</span></a>
-        <a class="match" href="#beautyrest"><div><div class="if">If you want…</div><div class="who">A firmer, coil feel</div></div><span class="brand">Beautyrest</span></a>
-        <a class="match" href="#tuft-needle"><div><div class="if">If you are…</div><div class="who">Unsure what you need</div></div><span class="brand">Tuft &amp; Needle</span></a>
+      </div>
+      <div class="cta-row">
+        <a class="btn lg" href="#" data-link="tn" rel="sponsored nofollow">See Tuft &amp; Needle Mattresses →</a>
       </div>
     </div>
   </section>
 
-  <!-- Buying guide -->
+  <!-- 7. Which T&N model? -->
+  <section class="section" id="models">
+    <div class="wrap">
+      <span class="eyebrow">Choosing a model</span>
+      <h2>Which Tuft &amp; Needle Mattress Is Right for You?</h2>
+      <p class="section-intro">Tuft &amp; Needle keeps its lineup short. These are the three models most shoppers choose between.</p>
+      <div class="models">
+
+        <article class="model" id="model-original">
+          <figure class="model-img" data-img-slot="tn-original">
+            <svg viewBox="0 0 300 120" role="img" aria-label="Layer diagram: cooling cover, Adaptive foam, support foam, base foam">
+              <rect x="10" y="20" width="280" height="12" rx="6" fill="#dfe6f4"/>
+              <rect x="10" y="34" width="280" height="22" fill="#7d93c4"/>
+              <rect x="10" y="58" width="280" height="20" fill="#4d659c"/>
+              <rect x="10" y="80" width="280" height="28" rx="4" fill="#2f4679"/>
+              <text x="150" y="49" text-anchor="middle" font-size="10" font-family="Inter,sans-serif" fill="#fff">T&amp;N Adaptive® foam</text>
+              <text x="150" y="72" text-anchor="middle" font-size="10" font-family="Inter,sans-serif" fill="#fff">Support foam</text>
+              <text x="150" y="98" text-anchor="middle" font-size="10" font-family="Inter,sans-serif" fill="#fff">Base foam</text>
+            </svg>
+            <figcaption>Layer overview · 12" all-foam</figcaption>
+          </figure>
+          <div class="model-body">
+            <div class="award">Best Everyday Value</div>
+            <h3>T&amp;N Original</h3>
+            <div class="spec">Firm feel · All-foam · Queen from $699</div>
+            <p>Tuft &amp; Needle's most affordable full-featured mattress. It has a supportive, firmer feel, and Adaptive® foam keeps it responsive and cool. A strong pick if you want a straightforward, well-made bed without spending more.</p>
+            <ul>
+              <li>Back sleepers</li>
+              <li>Stomach sleepers</li>
+              <li>First apartments &amp; guest rooms</li>
+              <li>Value-focused shoppers</li>
+            </ul>
+            <a class="btn block" href="#" data-link="tnOriginal" rel="sponsored nofollow">See T&amp;N Original Price →</a>
+          </div>
+        </article>
+
+        <article class="model" id="model-mint">
+          <figure class="model-img" data-img-slot="tn-mint">
+            <svg viewBox="0 0 300 120" role="img" aria-label="Layer diagram: cooling cover, Adaptive foam, gel memory foam, support foam, base foam">
+              <rect x="10" y="12" width="280" height="12" rx="6" fill="#dfe6f4"/>
+              <rect x="10" y="26" width="280" height="20" fill="#7d93c4"/>
+              <rect x="10" y="48" width="280" height="18" fill="#9fb8d9"/>
+              <rect x="10" y="68" width="280" height="16" fill="#4d659c"/>
+              <rect x="10" y="86" width="280" height="24" rx="4" fill="#2f4679"/>
+              <text x="150" y="40" text-anchor="middle" font-size="10" font-family="Inter,sans-serif" fill="#fff">T&amp;N Adaptive® foam</text>
+              <text x="150" y="61" text-anchor="middle" font-size="10" font-family="Inter,sans-serif" fill="#22345c">Gel memory foam</text>
+              <text x="150" y="80" text-anchor="middle" font-size="10" font-family="Inter,sans-serif" fill="#fff">Support foam</text>
+              <text x="150" y="102" text-anchor="middle" font-size="10" font-family="Inter,sans-serif" fill="#fff">Base foam</text>
+            </svg>
+            <figcaption>Layer overview · 13.5" all-foam</figcaption>
+          </figure>
+          <div class="model-body">
+            <div class="award">Best for Cooling &amp; Pressure Relief</div>
+            <h3>T&amp;N Mint</h3>
+            <div class="spec">Medium-firm feel · All-foam · Queen from $999</div>
+            <p>The Mint adds a layer of gel memory foam beneath the Adaptive® foam for more contouring at the shoulders and hips. You get extra pressure relief while keeping T&amp;N's cooler, more responsive surface.</p>
+            <ul>
+              <li>Side sleepers</li>
+              <li>Hot sleepers</li>
+              <li>Shoulder or hip pressure</li>
+              <li>Combination sleepers who want more cushion</li>
+            </ul>
+            <a class="btn block" href="#" data-link="tnMint" rel="sponsored nofollow">See T&amp;N Mint Price →</a>
+          </div>
+        </article>
+
+        <article class="model" id="model-hybrid">
+          <figure class="model-img" data-img-slot="tn-hybrid">
+            <svg viewBox="0 0 300 120" role="img" aria-label="Layer diagram: cooling cover, Adaptive foam, support foam, individually wrapped coils">
+              <rect x="10" y="12" width="280" height="12" rx="6" fill="#dfe6f4"/>
+              <rect x="10" y="26" width="280" height="20" fill="#7d93c4"/>
+              <rect x="10" y="48" width="280" height="16" fill="#4d659c"/>
+              <rect x="10" y="66" width="280" height="44" rx="4" fill="#22345c"/>
+              <g fill="none" stroke="#9fb1d6" stroke-width="2">
+                <path d="M28 70v36M52 70v36M76 70v36M100 70v36M124 70v36M176 70v36M200 70v36M224 70v36M248 70v36M272 70v36"/>
+              </g>
+              <text x="150" y="40" text-anchor="middle" font-size="10" font-family="Inter,sans-serif" fill="#fff">T&amp;N Adaptive® foam</text>
+              <text x="150" y="59" text-anchor="middle" font-size="10" font-family="Inter,sans-serif" fill="#fff">Support foam</text>
+              <text x="150" y="92" text-anchor="middle" font-size="10" font-family="Inter,sans-serif" fill="#fff">Wrapped coils</text>
+            </svg>
+            <figcaption>Layer overview · 12.5" hybrid</figcaption>
+          </figure>
+          <div class="model-body">
+            <div class="award">Best for Support &amp; Couples</div>
+            <h3>T&amp;N Original Hybrid</h3>
+            <div class="spec">Medium feel · Hybrid · Queen from $849</div>
+            <p>The Original Hybrid pairs Adaptive® foam with up to 1,000 individually wrapped coils. The coils add bounce, airflow and sturdier support, and because each one moves on its own, they help limit how much you feel a partner's movement.</p>
+            <ul>
+              <li>Couples</li>
+              <li>Heavier sleepers</li>
+              <li>Combination sleepers</li>
+              <li>Anyone who likes a little bounce</li>
+            </ul>
+            <a class="btn block" href="#" data-link="tnHybrid" rel="sponsored nofollow">See T&amp;N Hybrid Price →</a>
+          </div>
+        </article>
+
+      </div>
+      <p class="guide-note center" style="margin-top:20px">Queen list prices from tuftandneedle.com as of October 2026, before any promotions. Prices change, so check the brand's site for today's price.</p>
+    </div>
+  </section>
+
+  <!-- 8. Buying guide -->
   <section class="section alt" id="guide">
     <div class="wrap">
       <span class="eyebrow">Buying guide</span>
       <h2>What to Know Before You Buy</h2>
-      <p class="section-intro">The four things that actually decide whether a mattress will feel right to you.</p>
+      <p class="section-intro">The four things that actually decide whether a mattress will feel right to you, plus where each Tuft &amp; Needle model fits.</p>
       <div class="guide-grid">
         <div class="guide-card">
-          <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="5" rx="1"/><rect x="3" y="10" width="18" height="5" rx="1"/><rect x="3" y="16" width="18" height="4" rx="1"/></svg></span>Mattress Type</h3>
+          <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 18v-6a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v6M3 15h18M7 9V6"/></svg></span>Sleeping Position</h3>
           <dl>
-            <div><dt>Memory Foam</dt><dd>Excellent pressure relief and motion isolation. Great for side sleepers and couples, but can sleep warmer and feel harder to move around on.</dd></div>
-            <div><dt>Hybrid</dt><dd>Foam plus coils. Better airflow, edge support, and bounce. Often the safest, most broadly appealing construction.</dd></div>
-            <div><dt>Latex</dt><dd>Responsive, durable, and naturally breathable, but usually pricier, with a distinctive springy feel.</dd></div>
-            <div><dt>Innerspring</dt><dd>Traditional and bouncy with strong airflow, but generally less contouring.</dd></div>
+            <div><dt>Side sleepers</dt><dd>Prioritize pressure relief around the shoulders and hips.</dd><a class="rec" href="#model-mint">T&amp;N pick: Mint</a></div>
+            <div><dt>Back sleepers</dt><dd>Need balanced support with moderate contouring.</dd><a class="rec" href="#model-original">T&amp;N pick: Original</a></div>
+            <div><dt>Stomach sleepers</dt><dd>Need firmer support so the hips don't sink out of alignment.</dd><a class="rec" href="#model-original">T&amp;N pick: Original</a></div>
+            <div><dt>Combination sleepers</dt><dd>Want a responsive surface that's easy to change positions on.</dd><a class="rec" href="#model-original">T&amp;N pick: Original</a> <a class="rec" href="#model-hybrid">or Hybrid</a></div>
+          </dl>
+        </div>
+        <div class="guide-card">
+          <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 20h12l-1.5-11h-9z"/><circle cx="12" cy="6" r="2.5"/></svg></span>Body Weight</h3>
+          <p style="margin-bottom:12px">A 130-lb side sleeper and a 240-lb stomach sleeper can have completely different experiences on the exact same mattress.</p>
+          <dl>
+            <div><dt>Under 130 lbs</dt><dd>Mattresses feel firmer. Softer, contouring foam usually feels best.</dd><a class="rec" href="#model-mint">T&amp;N pick: Mint</a></div>
+            <div><dt>130–230 lbs</dt><dd>Most medium to medium-firm mattresses work well.</dd><a class="rec" href="#model-original">T&amp;N pick: any model</a></div>
+            <div><dt>Over 230 lbs</dt><dd>Look for coil support and durable materials to prevent sagging.</dd><a class="rec" href="#model-hybrid">T&amp;N pick: Hybrid</a></div>
           </dl>
         </div>
         <div class="guide-card">
@@ -600,33 +633,83 @@
             <div style="background:#2f4679"><b>6–7</b>Med-Firm</div>
             <div style="background:#1a2847"><b>8–10</b>Firm</div>
           </div>
-          <p>Firmness isn't absolute. Lighter sleepers usually experience a mattress as firmer than its rating, while heavier sleepers sink in more and feel it as softer. Most people land comfortably in the 5–7 range.</p>
+          <p>Firmness isn't absolute. Lighter sleepers usually experience a mattress as firmer than its rating, while heavier sleepers sink in more and feel it as softer. Most people land comfortably in the medium to medium-firm range.</p>
         </div>
         <div class="guide-card">
-          <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 18v-6a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v6M3 15h18M7 9V6"/></svg></span>Sleeping Position</h3>
-          <dl>
-            <div><dt>Side sleepers</dt><dd>Prioritize pressure relief around the shoulders and hips.</dd></div>
-            <div><dt>Back sleepers</dt><dd>Need balanced support with moderate contouring.</dd></div>
-            <div><dt>Stomach sleepers</dt><dd>Need firmer support so the hips don't sink out of alignment.</dd></div>
-            <div><dt>Combination sleepers</dt><dd>Want a responsive surface that's easy to change positions on.</dd></div>
-          </dl>
-        </div>
-        <div class="guide-card">
-          <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 20h12l-1.5-11h-9z"/><circle cx="12" cy="6" r="2.5"/></svg></span>Body Weight</h3>
-          <p style="margin-bottom:12px">A 130-lb side sleeper and a 240-lb stomach sleeper can have completely different experiences on the exact same mattress.</p>
-          <dl>
-            <div><dt>Under 130 lbs</dt><dd>Mattresses feel firmer. Softer, contouring foam usually feels best.</dd></div>
-            <div><dt>130–230 lbs</dt><dd>Most medium to medium-firm mattresses work well.</dd></div>
-            <div><dt>Over 230 lbs</dt><dd>Look for coil support, strong edges, and durable materials to prevent sagging.</dd></div>
-          </dl>
+          <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3a6 6 0 0 0-6 6c0 4 6 12 6 12s6-8 6-12a6 6 0 0 0-6-6z"/></svg></span>Your Specific Needs</h3>
+          <table class="rec-table">
+            <tr><td>Hot sleepers</td><td><a class="rec" href="#model-mint">Mint</a></td></tr>
+            <tr><td>Couples</td><td><a class="rec" href="#model-hybrid">Original Hybrid</a></td></tr>
+            <tr><td>Tight budget</td><td><a class="rec" href="#model-original">Original</a></td></tr>
+            <tr><td>Like some bounce</td><td><a class="rec" href="#model-hybrid">Original Hybrid</a></td></tr>
+            <tr><td>Want a deep, plush hug</td><td><a class="rec" href="#top3">Consider Serta</a></td></tr>
+            <tr><td>Need maximum edge support</td><td><a class="rec" href="#top3">Consider Beautyrest</a></td></tr>
+          </table>
         </div>
       </div>
+      <p class="guide-note">These are general recommendations based on typical needs, not guarantees. Comfort is personal, which is why a sleep trial matters.</p>
+    </div>
+  </section>
 
-      <div class="callout">
-        <h3>Don't Overthink the Specs</h3>
-        <p>Mattress shopping is full of trademarked foam names and "proprietary technologies." Most of it is marketing. Focus on the handful of factors that actually change how you'll sleep:</p>
-        <div class="chips"><span>Sleep position</span><span>Body weight</span><span>Firmness</span><span>Construction</span><span>Temperature</span><span>Partner needs</span><span>Trial &amp; return policy</span></div>
+  <!-- 9. Pros & cons -->
+  <section class="section" id="pros-cons">
+    <div class="wrap">
+      <span class="eyebrow">The honest take</span>
+      <h2>Tuft &amp; Needle Pros and Cons</h2>
+      <p class="section-intro">What Tuft &amp; Needle does well, and where it falls short.</p>
+      <div class="two-col">
+        <div class="col-card yes">
+          <h3>Pros</h3>
+          <ul>
+            <li>Responsive foam that's easy to move on</li>
+            <li>Sleeps cooler than most all-foam mattresses</li>
+            <li>Strong value: a queen from $699</li>
+            <li>Simple, easy-to-compare lineup</li>
+            <li>Made in the U.S.A., CertiPUR-US® certified and fiberglass-free</li>
+          </ul>
+        </div>
+        <div class="col-card no">
+          <h3>Cons</h3>
+          <ul>
+            <li>The Original runs firm, which may be too firm for lightweight side sleepers</li>
+            <li>All-foam models have weaker edge support than coil mattresses</li>
+            <li>Not the pick for people who want a very plush, sink-in feel</li>
+            <li>Only one trial return or exchange per household every 12 months</li>
+          </ul>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <!-- 10. Purchase confidence -->
+  <section class="section alt" id="confidence">
+    <div class="wrap">
+      <span class="eyebrow">Buying with confidence</span>
+      <h2>What Happens After You Order</h2>
+      <p class="section-intro">The key Tuft &amp; Needle policies for purchases made directly on tuftandneedle.com.</p>
+      <div class="assure">
+        <div class="assure-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></div>
+          <h3>100-Night Sleep Trial</h3>
+          <p>Sleep on it at home for up to 100 nights. If it isn't right, return it for a full refund.</p>
+        </div>
+        <div class="assure-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg></div>
+          <h3>10-Year Limited Warranty</h3>
+          <p>Covers defects in materials and workmanship for 10 years.</p>
+        </div>
+        <div class="assure-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+          <h3>Free Shipping</h3>
+          <p>Ships free in a compact box to your door. Most orders ship within 4 days. Optional white-glove delivery costs extra.</p>
+        </div>
+        <div class="assure-card">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></div>
+          <h3>Free, Simple Returns</h3>
+          <p>Start a return online and T&amp;N arranges free pickup, and most returned mattresses are donated. Limit one return per household every 12 months.</p>
+        </div>
+      </div>
+      <p class="assure-src">Policies as listed on tuftandneedle.com, October 2026. Purchases through Amazon or other retailers follow that retailer's return process. Alaska and Hawaii shipping fees aren't refundable.</p>
     </div>
   </section>
 
@@ -636,8 +719,9 @@
       <div>
         <span class="eyebrow">Our process</span>
         <h2>How We Compare Mattresses</h2>
-        <p>We don't run a sleep lab. Bed Review rankings come from a side-by-side comparison of each brand's published specifications, materials and construction, trial and warranty policies, pricing, verified customer feedback, and independent third-party testing and reviews.</p>
-        <p>Each brand is rated on the same criteria, and those ratings roll up into an overall score out of 10. Because each brand sells several models, ratings reflect its core lineup, and individual models may differ. Every pick includes genuine drawbacks, because knowing who <em>shouldn't</em> buy a mattress is just as useful as knowing who should.</p>
+        <p><strong>We don't run a sleep lab, and we don't claim to have personally slept on these mattresses.</strong> Bed Review rankings come from a structured side-by-side comparison of each brand's published specifications and construction, its trial, warranty and return policies, current pricing, verified customer feedback, and reputable independent testing and reviews.</p>
+        <p>Each brand is rated on the same criteria, and those ratings roll up into an overall score out of 10. Because each brand sells several models, ratings reflect its core lineup. We include genuine drawbacks for every pick, and we recheck prices and policies regularly because they change.</p>
+        <p>Bed Review earns a commission on some purchases made through our links. That never decides the ranking, and we link to every brand we recommend, not only our #1.</p>
       </div>
       <div>
         <h3 style="font-size:1.05rem;margin-bottom:14px">What we evaluate</h3>
@@ -663,28 +747,27 @@
       <span class="eyebrow">FAQ</span>
       <h2>Frequently Asked Questions</h2>
       <div class="faq">
-        <details><summary>How much should I spend on a good mattress?</summary><p>Most people can get an excellent queen mattress for $800–$1,600. Below about $600, materials and durability tend to drop off. Above $2,000, you're usually paying for luxury features rather than meaningfully better sleep.</p></details>
-        <details><summary>What mattress firmness is best?</summary><p>Medium-firm (around 6–7 out of 10) suits the widest range of sleepers. Side sleepers and lighter people often prefer a bit softer, while stomach sleepers and heavier people usually do better a bit firmer.</p></details>
-        <details><summary>What's the best mattress for side sleepers?</summary><p>Of our top three, Serta is the best fit for side sleepers thanks to its deep, pressure-relieving foam around the shoulders and hips.</p></details>
-        <details><summary>Are hybrid mattresses better than memory foam?</summary><p>Neither is better for everyone. Hybrids offer more bounce, airflow, and edge support. Memory foam offers more contouring and motion isolation. Hot sleepers and heavier sleepers often prefer hybrids, while side sleepers and couples often love foam.</p></details>
-        <details><summary>How long should a mattress last?</summary><p>A quality mattress typically lasts 7–10 years. Hybrids and latex often last toward the longer end, while lower-density foams may wear sooner, especially under heavier body weights.</p></details>
-        <details><summary>When should I replace my mattress?</summary><p>Replace it if you see visible sagging, wake up stiff or sore, sleep better away from home, or the mattress is more than 8–10 years old.</p></details>
-        <details><summary>Are mattresses in a box any good?</summary><p>Yes. Many of today's best mattresses ship compressed in a box. They expand fully within 24–72 hours and perform just as well as mattresses delivered flat.</p></details>
-        <details><summary>Should I buy a mattress online?</summary><p>Online is often cheaper and comes with long at-home trials, which tell you far more than lying on a showroom bed for five minutes. Just check the return policy before you buy.</p></details>
-        <details><summary>What happens if I don't like my mattress?</summary><p>All three of our picks offer an at-home sleep trial. If it isn't right, you can typically return it within the trial window. Give it at least 30 nights first, since your body needs time to adjust.</p></details>
+        <details><summary>Is Tuft &amp; Needle a good mattress brand?</summary><p>Yes. It's our #1 overall pick for its responsive, cooler-sleeping foam, simple lineup and strong value. It isn't ideal for everyone, though. People who want a very plush feel or maximum edge support may prefer Serta or Beautyrest.</p></details>
+        <details><summary>Which Tuft &amp; Needle mattress should I buy?</summary><p>As a general guide: the Original for back and stomach sleepers or tighter budgets, the Mint for side sleepers and hot sleepers who want more pressure relief, and the Original Hybrid for couples and heavier sleepers who want coil support.</p></details>
+        <details><summary>How much should I spend on a good mattress?</summary><p>Many people can get an excellent queen mattress for roughly $700–$1,600. Much below that, materials and durability tend to drop off. Well above $2,000, you're usually paying for luxury features rather than meaningfully better sleep.</p></details>
+        <details><summary>What's the best mattress for side sleepers?</summary><p>Of our top three brands, Serta offers the deepest pressure relief for side sleepers. If you prefer Tuft &amp; Needle's more responsive feel, the T&amp;N Mint adds gel memory foam for extra shoulder and hip cushioning.</p></details>
+        <details><summary>Are hybrid mattresses better than memory foam?</summary><p>Neither is better for everyone. Hybrids offer more bounce, airflow and edge support. Foam offers more contouring and motion isolation. Hot sleepers and heavier sleepers often prefer hybrids, while side sleepers often love foam.</p></details>
+        <details><summary>How long should a mattress last?</summary><p>A quality mattress typically lasts 7–10 years. Hybrids often last toward the longer end, while lower-density foams may wear sooner, especially under heavier body weights.</p></details>
+        <details><summary>Are mattresses in a box any good?</summary><p>Yes. Many of today's best mattresses, including every Tuft &amp; Needle model, ship compressed in a box. They expand within a day or two and perform just as well as mattresses delivered flat.</p></details>
+        <details><summary>What happens if I don't like my mattress?</summary><p>All three of our picks offer a 100-night trial when you buy from the brand directly. If it isn't right, you can return it within that window. Give it about 30 nights first, since your body needs time to adjust.</p></details>
         <details><summary>Do I need a box spring?</summary><p>Usually not. Most modern foam and hybrid mattresses work on any solid or slatted foundation, a platform bed, or an adjustable base. Check each brand's warranty for its specific support requirements.</p></details>
       </div>
     </div>
   </section>
 
-  <!-- Final CTA -->
-  <section class="section final" id="final">
+  <!-- 11. Final CTA -->
+  <section class="section" id="final">
     <div class="wrap">
-      <h2>Still Deciding?</h2>
-      <p class="section-intro" style="margin:0 auto">Not sure what you need? Tuft &amp; Needle is the most versatile of our three picks, with balanced comfort, strong cooling and a 100-night trial to make sure.</p>
-      <div class="row">
-        <a class="btn lg" href="#" rel="sponsored nofollow">See Today's Tuft &amp; Needle Price →</a>
-        <a class="btn ghost" href="#compare">Compare All 3 Again</a>
+      <div class="final-box">
+        <h2>Ready to See If Tuft &amp; Needle Is Right for You?</h2>
+        <p>See current models, prices and offers directly from Tuft &amp; Needle. Every mattress comes with a 100-night trial, so you can decide at home.</p>
+        <a class="btn lg" href="#" data-link="tn" rel="sponsored nofollow">Check Today's Tuft &amp; Needle Price →</a>
+        <p class="fine">Still comparing? <a href="#compare" style="color:#fff">See how all three brands stack up</a>.</p>
       </div>
     </div>
   </section>
@@ -695,34 +778,59 @@
   <div class="wrap">
     <div class="top">
       <span class="logo-white"><img src="assets/logo.svg" alt="Bed Review"></span>
-      <nav><a href="#compare">Compare</a><a href="#reviews">Reviews</a><a href="#match">Find Your Match</a><a href="#guide">Buying Guide</a><a href="#faq">FAQ</a></nav>
+      <nav><a href="#top3">Top 3</a><a href="#compare">Compare</a><a href="#models">T&amp;N Models</a><a href="#guide">Buying Guide</a><a href="#method">How We Rank</a><a href="#faq">FAQ</a></nav>
     </div>
-    <p>Bed Review is an independent comparison site. We may receive compensation when you click links to products on this page, which helps keep the site free. Compensation does not influence our rankings. Prices, trial periods, and offers are approximate, change frequently, and should be confirmed on each brand's website. Tuft &amp; Needle, Serta, and Beautyrest are trademarks of their respective owners.</p>
+    <p>Bed Review is an independent comparison site. We may receive compensation when you click links to products on this page, which helps keep the site free. Compensation does not influence our rankings. Prices, policies, and offers change frequently and should be confirmed on each brand's website. Tuft &amp; Needle, T&amp;N Adaptive, Serta, and Beautyrest are trademarks of their respective owners.</p>
     <p style="margin-top:12px">© 2026 Bed Review. All rights reserved.</p>
   </div>
 </footer>
 
 <div class="sticky-cta" id="sticky-cta" role="complementary" aria-label="Our top pick">
-  <div class="txt"><b>#1 Tuft &amp; Needle</b>Best Overall · from ~$795</div>
-  <a class="btn sm" href="#" rel="sponsored nofollow">See Today's Price →</a>
+  <div class="txt">#1 Pick: Tuft &amp; Needle</div>
+  <a class="btn sm" href="#" data-link="tn" rel="sponsored nofollow">See Today's Price →</a>
   <button class="close" type="button" aria-label="Dismiss">×</button>
 </div>
 
 <script>
   (function () {
+    var cfg = window.BR_CONFIG || {};
+
+    // Outbound links
+    document.querySelectorAll('[data-link]').forEach(function (a) {
+      var url = cfg.links && cfg.links[a.getAttribute('data-link')];
+      if (url) a.href = url;
+    });
+
+    // T&N offer module
+    var o = cfg.tnOffer, box = document.querySelector('[data-offer]');
+    if (box && o && o.active && o.text) {
+      box.querySelector('[data-offer-label]').textContent = o.label || 'Current Tuft & Needle Offer';
+      box.querySelector('[data-offer-text]').textContent = o.text;
+      box.querySelector('[data-offer-cta]').textContent = o.cta || '';
+      box.querySelector('[data-offer-note]').textContent = o.note || '';
+      box.hidden = false;
+    }
+
+    // Sticky mobile CTA
     var bar = document.getElementById('sticky-cta');
     var picks = document.getElementById('picks');
     var final = document.getElementById('final');
     var dismissed = false;
     try { dismissed = sessionStorage.getItem('br-sticky-dismissed') === '1'; } catch (e) {}
-    if (dismissed || !('IntersectionObserver' in window)) return;
+    if (dismissed) return;
     document.body.classList.add('has-sticky');
-    var pastPicks = false, atFinal = false;
-    function update() { bar.classList.toggle('show', pastPicks && !atFinal && !dismissed); }
-    new IntersectionObserver(function (e) {
-      pastPicks = !e[0].isIntersecting && e[0].boundingClientRect.top < 0; update();
-    }).observe(picks);
-    new IntersectionObserver(function (e) { atFinal = e[0].isIntersecting; update(); }).observe(final);
+    var ticking = false;
+    function update() {
+      ticking = false;
+      var pastPicks = picks.getBoundingClientRect().bottom < 0;
+      var atFinal = final.getBoundingClientRect().top < window.innerHeight;
+      bar.classList.toggle('show', pastPicks && !atFinal && !dismissed);
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    }, { passive: true });
+    window.addEventListener('resize', update);
+    update();
     bar.querySelector('.close').addEventListener('click', function () {
       dismissed = true; update(); document.body.classList.remove('has-sticky');
       try { sessionStorage.setItem('br-sticky-dismissed', '1'); } catch (e) {}
