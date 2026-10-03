@@ -260,7 +260,10 @@
   .ref-text { color: var(--muted); font-size: .92rem; max-width: 820px; }
 
   /* FAQ */
-  .faq { max-width: 820px; }
+  #faq h2 { text-align: center; }
+  .faq { max-width: 760px; margin: 0 auto; text-align: center; }
+  .faq summary { padding-left: 40px !important; }
+  .faq details p { max-width: 640px; margin: 0 auto; }
   .faq details { border-bottom: 1px solid var(--blue-line); }
   .faq summary { cursor: pointer; list-style: none; padding: 14px 40px 14px 0; font-weight: 700; color: var(--blue-dark); position: relative; font-size: .97rem; }
   .faq summary::-webkit-details-marker { display: none; }
@@ -269,12 +272,37 @@
   .faq details p { padding: 0 0 18px; color: var(--muted); font-size: .96rem; }
 
   /* Final CTA */
-  .final-box { background: radial-gradient(520px 260px at 100% 0%, rgba(115, 179, 220, .45), transparent 70%), radial-gradient(420px 220px at 0% 100%, rgba(115, 179, 220, .25), transparent 70%), var(--blue); border-radius: 20px; padding: 48px 28px; text-align: center; color: var(--white); }
-  .final-box h2 { color: var(--white); }
-  .final-box p { color: #dfe6f4; max-width: 620px; margin: 0 auto 24px; }
+  .final-box { display: grid; grid-template-columns: 0.95fr 1.05fr; overflow: hidden; border-radius: 22px; color: var(--white); background: radial-gradient(520px 300px at 100% 0%, rgba(115, 179, 220, .42), transparent 70%), var(--blue); box-shadow: 0 24px 60px rgba(34, 52, 92, .28); }
+  .final-media { position: relative; min-height: 380px; }
+  .final-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .final-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent 60%, rgba(47, 70, 121, .55)); }
+  .final-score { position: absolute; left: 20px; bottom: 20px; z-index: 1; display: flex; align-items: center; gap: 10px; background: rgba(255, 255, 255, .95); color: var(--blue-dark); border-radius: 12px; padding: 10px 14px; box-shadow: 0 8px 20px rgba(0, 0, 0, .15); }
+  .final-score b { font-size: 1.6rem; font-weight: 800; letter-spacing: -.03em; line-height: 1; }
+  .final-score span { font-size: .72rem; font-weight: 700; line-height: 1.25; color: var(--muted); }
+  .final-score .stars { font-size: .95rem; }
+  .final-body { padding: 44px 44px 40px; display: flex; flex-direction: column; align-items: flex-start; }
+  .top-pick-pill { display: inline-flex; align-items: center; gap: 6px; background: var(--accent); color: var(--blue-dark); font-size: .74rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; margin-bottom: 18px; }
+  .top-pick-pill svg { width: 13px; height: 13px; }
+  .final-logo { width: 210px; height: auto; filter: brightness(0) invert(1); margin-bottom: 18px; }
+  .final-body h2 { color: var(--white); font-size: clamp(1.6rem, 3vw, 2.15rem); margin-bottom: 12px; }
+  .final-body > p { color: #dfe6f4; margin-bottom: 18px; }
+  .final-offer { display: flex; gap: 10px; align-items: center; background: rgba(255, 255, 255, .1); border: 1px solid rgba(115, 179, 220, .5); border-radius: 12px; padding: 10px 14px; margin-bottom: 18px; font-size: .92rem; font-weight: 600; }
+  .final-offer[hidden] { display: none; }
+  .final-offer svg { width: 22px; height: 22px; color: var(--accent); flex-shrink: 0; }
+  .final-perks { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 18px; margin-bottom: 24px; font-size: .88rem; color: #dfe6f4; }
+  .final-perks li { display: flex; align-items: center; gap: 6px; }
+  .final-perks li::before { content: "✓"; color: var(--accent); font-weight: 800; }
   .final-box .btn { background: var(--white); color: var(--blue-dark); border-color: var(--white); }
-  .final-box .btn:hover { background: var(--blue-soft); }
-  .final-box .fine { font-size: .78rem; color: #b9c5de; margin-top: 14px; }
+  .final-box .btn:hover { background: var(--accent-soft); }
+  .final-box .fine { font-size: .8rem; color: #b9c5de; margin-top: 14px; }
+  .final-box .fine a { color: var(--white); }
+  @media (max-width: 860px) {
+    .final-box { grid-template-columns: 1fr; }
+    .final-media { min-height: 0; aspect-ratio: 16 / 10; }
+    .final-media::after { background: linear-gradient(180deg, transparent 60%, rgba(47, 70, 121, .5)); }
+    .final-body { padding: 28px 22px 30px; }
+    .final-body .btn { width: 100%; }
+  }
 
   footer { background: var(--blue-dark); color: #c3cde2; padding: 40px 0; font-size: .84rem; }
   footer .top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 18px; }
@@ -488,7 +516,7 @@
           <figure class="model-img"><img src="assets/img/tn-hybrid.webp" alt="T&amp;N Hybrid mattress in a bedroom" width="900" height="900" loading="lazy"></figure>
           <div class="model-body">
             <div class="award">Best for Support &amp; Couples</div>
-            <h3>Original Hybrid</h3>
+            <h3>Hybrid</h3>
             <div class="spec">Medium · Hybrid · Queen from $849</div>
             <p>Adaptive® foam over up to 1,000 wrapped coils for more bounce, airflow and support.</p>
             <ul><li>Couples</li><li>Heavier sleepers</li><li>Combination sleepers</li></ul>
@@ -526,7 +554,7 @@
       <h2>FAQ</h2>
       <div class="faq">
         <details><summary>What firmness is best for most sleepers?</summary><p>Medium to medium-firm suits the widest range of people. Side sleepers and lighter people often prefer a bit softer; stomach sleepers and heavier people usually do better a bit firmer.</p></details>
-        <details><summary>Which Tuft &amp; Needle mattress should I choose?</summary><p>The Original for back and stomach sleepers or tighter budgets, the Mint for side and hot sleepers who want more pressure relief, and the Original Hybrid for couples and heavier sleepers who want coil support.</p></details>
+        <details><summary>Which Tuft &amp; Needle mattress should I choose?</summary><p>The Original for back and stomach sleepers or tighter budgets, the Mint for side and hot sleepers who want more pressure relief, and the Hybrid for couples and heavier sleepers who want coil support.</p></details>
         <details><summary>Is Tuft &amp; Needle good for side sleepers?</summary><p>Yes, especially the T&amp;N Mint, which adds gel memory foam for shoulder and hip relief. If you want an even deeper, plusher hug, Serta is our top pick for side sleepers.</p></details>
         <details><summary>How does the sleep trial work?</summary><p>Buy directly from tuftandneedle.com and you get 100 nights from delivery. If it isn't right, start a return online for a full refund; T&amp;N arranges free pickup, and most returns are donated. Limit one return per household every 12 months.</p></details>
         <details><summary>Is Tuft &amp; Needle worth the price?</summary><p>For most shoppers, yes. Queens start at $699, well below premium brands, and you still get responsive, cooler-sleeping foam, a 10-year limited warranty and free shipping and returns.</p></details>
@@ -538,10 +566,20 @@
   <section class="section" id="final">
     <div class="wrap">
       <div class="final-box">
-        <h2>Ready to See If Tuft &amp; Needle Is Right for You?</h2>
-        <p>See current models, prices and offers directly from Tuft &amp; Needle. Every mattress comes with a 100-night trial, so you can decide at home.</p>
-        <a class="btn lg" href="#" data-link="tn" rel="sponsored nofollow">Shop At Tuft &amp; Needle</a>
-        <p class="fine">Still comparing? <a href="#top3" style="color:#fff">Revisit our top 3</a>.</p>
+        <div class="final-media">
+          <img src="assets/img/tn-original.webp" alt="Couple relaxing on a Tuft &amp; Needle Original mattress" width="900" height="900" loading="lazy">
+          <div class="final-score"><b>9.7</b><span><span class="stars" aria-label="9.7 out of 10"><i style="width:97%"></i></span><br>Bed Review score</span></div>
+        </div>
+        <div class="final-body">
+          <span class="top-pick-pill"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.5 7 .8-5.2 4.8 1.5 7L12 17.6 5.7 21l1.5-7L2 9.3l7-.8z"/></svg>Our Top Pick</span>
+          <img class="final-logo" src="assets/tuft-needle.webp" alt="Tuft &amp; Needle">
+          <h2>Ready to See If Tuft &amp; Needle Is Right for You?</h2>
+          <p>See current models, prices and offers directly from Tuft &amp; Needle.</p>
+          <div class="final-offer" data-offer-final hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v9H4v-9M2 7h20v5H2zM12 21V7M12 7H7.5a2.5 2.5 0 1 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 1 0 0-5C13 2 12 7 12 7z"/></svg><span data-offer-final-text></span></div>
+          <ul class="final-perks"><li>100-night trial</li><li>Free shipping &amp; returns</li><li>10-year warranty</li><li>Queen from $699</li></ul>
+          <a class="btn lg" href="#" data-link="tn" rel="sponsored nofollow">Shop At Tuft &amp; Needle <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <p class="fine">Still comparing? <a href="#top3">Revisit our top 3</a>.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -584,6 +622,9 @@
       box.querySelector('[data-offer-note]').textContent = o.note || '';
       box.hidden = false;
     }
+
+    var fo = document.querySelector('[data-offer-final]');
+    if (fo && o && o.active && o.text) { fo.querySelector('[data-offer-final-text]').textContent = 'Current offer: ' + o.text; fo.hidden = false; }
 
     // Respect reduced-motion preference for the background video
     if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) {
