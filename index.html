@@ -95,7 +95,19 @@
   header.site nav { display: flex; gap: 26px; }
   header.site nav a { text-decoration: none; color: var(--ink); font-weight: 600; font-size: .93rem; }
   header.site nav a:hover { color: var(--blue); }
-  @media (max-width: 760px) { header.site nav { display: none; } header.site .logo img { height: 36px; } }
+  .menu-btn { display: none; }
+  @media (max-width: 760px) {
+    header.site .logo img { height: 36px; }
+    .menu-btn { display: inline-flex; flex-direction: column; justify-content: center; gap: 5px; width: 44px; height: 44px; margin-right: -8px; padding: 10px; background: none; border: 0; cursor: pointer; }
+    .menu-btn span { display: block; height: 2px; border-radius: 2px; background: var(--blue-dark); transition: transform .2s, opacity .2s; }
+    header.site.open .menu-btn span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    header.site.open .menu-btn span:nth-child(2) { opacity: 0; }
+    header.site.open .menu-btn span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    header.site nav { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 0; background: var(--white); border-bottom: 1px solid var(--blue-line); box-shadow: 0 12px 24px rgba(28, 35, 51, .1); padding: 6px 16px 12px; }
+    header.site.open nav { display: flex; }
+    header.site nav a { padding: 13px 0; font-size: 1rem; border-bottom: 1px solid var(--blue-soft); }
+    header.site nav a:last-child { border-bottom: 0; }
+  }
   section[id] { scroll-margin-top: 80px; }
 
   /* Hero */
@@ -214,17 +226,13 @@
   .feature-video video { width: 100%; height: auto; display: block; aspect-ratio: 2048 / 1080; object-fit: cover; }
   .feature-video figcaption { background: var(--white); padding: 12px 18px; font-size: .85rem; color: var(--muted); }
   .feature-video figcaption b { color: var(--blue-dark); }
-  .recognition { border-top: 3px solid var(--accent); display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 16px; align-items: center; margin-top: 24px; background: var(--white); border: 1px solid var(--blue-line); border-radius: var(--radius); padding: 22px; }
-  .recognition h3 { font-size: 1.1rem; margin-bottom: 6px; }
-  .recognition p { font-size: .88rem; color: var(--muted); }
-  .recognition img { border-radius: 10px; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; }
   .benefit .num { font-size: .75rem; font-weight: 800; letter-spacing: .08em; color: var(--blue); text-transform: uppercase; }
   .benefit h3 { font-size: 1.15rem; margin: 0 0 8px; display: flex; align-items: center; gap: 12px; }
   .benefit h3 .ico { flex-shrink: 0; width: 40px; height: 40px; border-radius: 10px; background: var(--accent); color: var(--blue-dark); display: inline-flex; align-items: center; justify-content: center; }
   .benefit h3 .ico svg { width: 20px; height: 20px; }
   .benefit p { font-size: .95rem; color: #39404f; }
   .benefit .src { display: block; font-size: .74rem; color: var(--muted); margin-top: 10px; }
-  @media (max-width: 760px) { .benefits { grid-template-columns: 1fr; } .benefit { padding: 0 20px 20px; } .benefit-img { margin: 0 -20px 16px; } .recognition { grid-template-columns: repeat(3, 1fr); gap: 10px; } .recognition > div { grid-column: 1 / -1; } }
+  @media (max-width: 760px) { .benefits { grid-template-columns: 1fr; } .benefit { padding: 0 20px 20px; } .benefit-img { margin: 0 -20px 16px; } }
 
   /* T&N model cards */
   .models { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -275,14 +283,11 @@
   .final-box { display: grid; grid-template-columns: 0.95fr 1.05fr; overflow: hidden; border-radius: 22px; color: var(--white); background: radial-gradient(520px 300px at 100% 0%, rgba(115, 179, 220, .42), transparent 70%), var(--blue); box-shadow: 0 24px 60px rgba(34, 52, 92, .28); }
   .final-media { position: relative; min-height: 380px; }
   .final-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-  .final-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent 60%, rgba(47, 70, 121, .55)); }
-  .final-score { position: absolute; left: 20px; bottom: 20px; z-index: 1; display: flex; align-items: center; gap: 10px; background: rgba(255, 255, 255, .95); color: var(--blue-dark); border-radius: 12px; padding: 10px 14px; box-shadow: 0 8px 20px rgba(0, 0, 0, .15); }
+  .final-score { position: absolute; left: 20px; top: 20px; z-index: 1; display: flex; align-items: center; gap: 10px; background: rgba(255, 255, 255, .95); color: var(--blue-dark); border-radius: 12px; padding: 10px 14px; box-shadow: 0 8px 20px rgba(0, 0, 0, .15); }
   .final-score b { font-size: 1.6rem; font-weight: 800; letter-spacing: -.03em; line-height: 1; }
   .final-score span { font-size: .72rem; font-weight: 700; line-height: 1.25; color: var(--muted); }
   .final-score .stars { font-size: .95rem; }
   .final-body { padding: 44px 44px 40px; display: flex; flex-direction: column; align-items: flex-start; }
-  .top-pick-pill { display: inline-flex; align-items: center; gap: 6px; background: var(--accent); color: var(--blue-dark); font-size: .74rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; margin-bottom: 18px; }
-  .top-pick-pill svg { width: 13px; height: 13px; }
   .final-logo { width: 210px; height: auto; filter: brightness(0) invert(1); margin-bottom: 18px; }
   .final-body h2 { color: var(--white); font-size: clamp(1.6rem, 3vw, 2.15rem); margin-bottom: 12px; }
   .final-body > p { color: #dfe6f4; font-size: 1.05rem; margin-bottom: 18px; }
@@ -297,15 +302,17 @@
   @media (max-width: 860px) {
     .final-box { grid-template-columns: 1fr; }
     .final-media { min-height: 0; aspect-ratio: 16 / 10; }
-    .final-media::after { background: linear-gradient(180deg, transparent 60%, rgba(47, 70, 121, .5)); }
+    .final-score { top: auto; bottom: 16px; left: 16px; }
     .final-body { padding: 28px 22px 30px; }
     .final-body .btn { width: 100%; }
   }
 
   footer { background: var(--blue-dark); color: #c3cde2; padding: 40px 0; font-size: .84rem; }
-  footer .top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 18px; }
-  footer .logo-white { background: var(--white); border-radius: 10px; padding: 8px 14px; display: inline-block; }
-  footer .logo-white img { height: 34px; width: auto; }
+  footer .top { display: flex; flex-direction: column; align-items: center; gap: 16px; margin-bottom: 22px; text-align: center; }
+  footer .top nav { justify-content: center; }
+  footer p { margin-left: auto; margin-right: auto; text-align: center; }
+  footer .logo-white { display: inline-block; }
+  footer .logo-white img { height: 38px; width: auto; filter: brightness(0) invert(1); }
   footer nav { display: flex; gap: 20px; flex-wrap: wrap; }
   footer a { color: #c3cde2; text-decoration: none; }
   footer a:hover { color: var(--white); }
@@ -329,12 +336,13 @@
 <header class="site">
   <div class="wrap">
     <a class="logo" href="#top" aria-label="Bed Review home"><img src="assets/logo.svg" alt="Bed Review"></a>
-    <nav aria-label="Primary">
+    <nav aria-label="Primary" id="primary-nav">
       <a href="#top3">Top 3</a>
       <a href="#why">Why T&amp;N</a>
       <a href="#models">T&amp;N Models</a>
       <a href="#faq">FAQ</a>
     </nav>
+    <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav"><span></span><span></span><span></span></button>
   </div>
 </header>
 
@@ -470,15 +478,6 @@
           <p>A short, clear lineup where each step up adds a feature you can understand, at prices well below luxury brands.</p>
         </div>
       </div>
-      <div class="recognition">
-        <div>
-          <h3>Recognized by others, too</h3>
-          <p>NapLab named the T&amp;N Mint its best foam mattress. Our ranking is our own.</p>
-        </div>
-        <img src="assets/img/award-3.webp" alt="T&amp;N Mint mattress with NapLab 2026 Lab-Tested Winner badge" width="751" height="751" loading="lazy">
-        <img src="assets/img/award-1.webp" alt="Tuft &amp; Needle mattress with 2026 Forbes Vetted Best Product Awards badge" width="751" height="751" loading="lazy">
-        <img src="assets/img/award-2.webp" alt="T&amp;N mattress with 2026 Good Housekeeping Bedding Awards winner badge" width="751" height="751" loading="lazy">
-      </div>
     </div>
   </section>
 
@@ -569,7 +568,6 @@
           <div class="final-score"><b>9.7</b><span><span class="stars" aria-label="9.7 out of 10"><i style="width:97%"></i></span><br>Bed Review score</span></div>
         </div>
         <div class="final-body">
-          <span class="top-pick-pill"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.5 7 .8-5.2 4.8 1.5 7L12 17.6 5.7 21l1.5-7L2 9.3l7-.8z"/></svg>Our Top Pick</span>
           <img class="final-logo" src="assets/tuft-needle.webp" alt="Tuft &amp; Needle">
           <h2>Ready to See If Tuft &amp; Needle Is Right for You?</h2>
           <p>Get <strong>FREE</strong> Tuft &amp; Needle Down Alternative Pillow Set when you order any mattress.</p>
@@ -617,6 +615,16 @@
       var c = box.querySelector('[data-offer-cta]'); if (c) c.textContent = o.cta || '';
       box.querySelector('[data-offer-note]').textContent = o.note || '';
       box.hidden = false;
+    }
+
+    // Mobile menu
+    var hdr = document.querySelector('header.site'), mb = hdr && hdr.querySelector('.menu-btn');
+    if (mb) {
+      mb.addEventListener('click', function () {
+        var open = hdr.classList.toggle('open');
+        mb.setAttribute('aria-expanded', open); mb.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      });
+      hdr.querySelectorAll('nav a').forEach(function (a) { a.addEventListener('click', function () { hdr.classList.remove('open'); mb.setAttribute('aria-expanded', 'false'); mb.setAttribute('aria-label', 'Open menu'); }); });
     }
 
     // Respect reduced-motion preference for the background video
