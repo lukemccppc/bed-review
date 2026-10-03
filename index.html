@@ -285,10 +285,8 @@
   .top-pick-pill svg { width: 13px; height: 13px; }
   .final-logo { width: 210px; height: auto; filter: brightness(0) invert(1); margin-bottom: 18px; }
   .final-body h2 { color: var(--white); font-size: clamp(1.6rem, 3vw, 2.15rem); margin-bottom: 12px; }
-  .final-body > p { color: #dfe6f4; margin-bottom: 18px; }
-  .final-offer { display: flex; gap: 10px; align-items: center; background: rgba(255, 255, 255, .1); border: 1px solid rgba(115, 179, 220, .5); border-radius: 12px; padding: 10px 14px; margin-bottom: 18px; font-size: .92rem; font-weight: 600; }
-  .final-offer[hidden] { display: none; }
-  .final-offer svg { width: 22px; height: 22px; color: var(--accent); flex-shrink: 0; }
+  .final-body > p { color: #dfe6f4; font-size: 1.05rem; margin-bottom: 18px; }
+  .final-body > p strong { color: var(--white); }
   .final-perks { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 18px; margin-bottom: 24px; font-size: .88rem; color: #dfe6f4; }
   .final-perks li { display: flex; align-items: center; gap: 6px; }
   .final-perks li::before { content: "✓"; color: var(--accent); font-weight: 800; }
@@ -574,11 +572,9 @@
           <span class="top-pick-pill"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.5 7 .8-5.2 4.8 1.5 7L12 17.6 5.7 21l1.5-7L2 9.3l7-.8z"/></svg>Our Top Pick</span>
           <img class="final-logo" src="assets/tuft-needle.webp" alt="Tuft &amp; Needle">
           <h2>Ready to See If Tuft &amp; Needle Is Right for You?</h2>
-          <p>See current models, prices and offers directly from Tuft &amp; Needle.</p>
-          <div class="final-offer" data-offer-final hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v9H4v-9M2 7h20v5H2zM12 21V7M12 7H7.5a2.5 2.5 0 1 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 1 0 0-5C13 2 12 7 12 7z"/></svg><span data-offer-final-text></span></div>
-          <ul class="final-perks"><li>100-night trial</li><li>Free shipping &amp; returns</li><li>10-year warranty</li><li>Queen from $699</li></ul>
+          <p>Get <strong>FREE</strong> Tuft &amp; Needle Down Alternative Pillow Set when you order any mattress.</p>
+          <ul class="final-perks"><li>100-night trial</li><li>Free shipping &amp; returns</li><li>10-year warranty</li></ul>
           <a class="btn lg" href="#" data-link="tn" rel="sponsored nofollow">Shop At Tuft &amp; Needle <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <p class="fine">Still comparing? <a href="#top3">Revisit our top 3</a>.</p>
         </div>
       </div>
     </div>
@@ -622,9 +618,6 @@
       box.querySelector('[data-offer-note]').textContent = o.note || '';
       box.hidden = false;
     }
-
-    var fo = document.querySelector('[data-offer-final]');
-    if (fo && o && o.active && o.text) { fo.querySelector('[data-offer-final-text]').textContent = 'Current offer: ' + o.text; fo.hidden = false; }
 
     // Respect reduced-motion preference for the background video
     if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) {
