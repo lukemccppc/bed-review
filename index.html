@@ -110,11 +110,6 @@
   .hero { background: radial-gradient(900px 340px at 50% -60px, rgba(115, 179, 220, .28), transparent 70%), linear-gradient(180deg, var(--blue-soft) 0%, var(--white) 100%); padding: 56px 0 48px; text-align: center; }
   .hero h1 { font-size: clamp(2rem, 5vw, 3.1rem); font-weight: 800; letter-spacing: -.03em; margin-bottom: 14px; }
   .hero p.lead { font-size: 1.12rem; color: var(--muted); max-width: 720px; margin: 0 auto 10px; }
-  .hero p.tagline { font-weight: 700; color: var(--blue); margin-bottom: 22px; }
-  .hero p.tagline span { display: inline-block; background: var(--accent-soft); border: 1px solid #c4e0f2; border-radius: 999px; padding: 5px 14px; font-size: .92rem; color: var(--blue-dark); }
-  .hero-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 22px; font-size: .88rem; color: var(--muted); }
-  .hero-meta span { display: inline-flex; align-items: center; gap: 6px; }
-  .hero-meta svg { width: 16px; height: 16px; color: var(--accent-ink); }
 
   /* Top 3: rankings */
   .ranks { display: grid; gap: 22px; margin-top: 44px; text-align: left; max-width: 1120px; margin-left: auto; margin-right: auto; }
@@ -155,7 +150,6 @@
   .offer-box .note { font-size: .78rem; color: var(--muted); }
   .rh-action .btn { width: 100%; }
   .btn .arr { width: 18px; height: 18px; }
-  .from { text-align: center; font-size: .88rem; color: var(--muted); margin-top: -6px; }
   .perk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 14px; border-top: 1px solid var(--blue-line); padding-top: 18px; }
   .perk-grid div { display: grid; grid-template-columns: 30px 1fr; gap: 10px; align-items: start; font-size: .78rem; color: var(--muted); line-height: 1.3; }
   .perk-grid svg { width: 26px; height: 26px; color: var(--blue); }
@@ -328,12 +322,6 @@
       <span class="eyebrow">Updated October 2026</span>
       <h1>The Top 3 Mattress Brands of 2026</h1>
       <p class="lead">We compared the mattresses worth considering on comfort, support, cooling, price, trial periods and more, so you can narrow down your options without reading dozens of reviews.</p>
-      <p class="tagline"><span>We did the research. You make the choice.</span></p>
-      <div class="hero-meta">
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>3 brands, side by side</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Real pros <em>and</em> cons</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Matched to how you sleep</span>
-      </div>
 
       <div class="ranks" id="picks">
         <article class="rank-hero">
@@ -343,8 +331,8 @@
             <img class="brand-logo" src="assets/tuft-needle.webp" alt="Tuft &amp; Needle">
             <span class="eyebrow-wide">Best Overall Mattress</span>
             <div class="score-row">
-              <span class="stars" aria-label="9.7 out of 10"><i style="width:97%"></i></span>
-              <span class="num">9.7<small>/10</small></span>
+              <span class="stars" aria-label="9.8 out of 10"><i style="width:98%"></i></span>
+              <span class="num">9.8<small>/10</small></span>
               <span class="lbl">Bed Review Score <span class="info" title="Scores reflect our comparison of specs, materials, pricing, policies, customer feedback and independent testing.">i</span></span>
             </div>
             <p class="rh-desc">The best balance of comfort, support, cooling and value of the mattresses we compared. A versatile option that works well for most sleep styles.</p>
@@ -363,7 +351,6 @@
               </div>
             </div>
             <a class="btn lg" href="#" data-link="tn" rel="sponsored nofollow">Shop At Tuft &amp; Needle <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <div class="from">Queen from $699</div>
             <div class="perk-grid">
               <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><span><b>100 nights</b>Sleep trial</span></div>
               <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg><span><b>10-year</b>Limited warranty</span></div>
@@ -377,7 +364,6 @@
           <div class="rr-main">
             <div class="rr-brand">
               <img src="assets/serta.png" alt="Serta">
-              <span class="rr-best">Best for Pressure Relief</span>
               <p>A comfortable, contouring feel that works well for side sleepers and couples.</p>
               <div class="rr-score"><span class="num">9.3<small> /10</small></span><div><span class="stars" aria-label="9.3 out of 10"><i style="width:93%"></i></span><em>Bed Review score</em></div></div>
             </div>
@@ -388,7 +374,7 @@
             </div>
             <div class="rr-action">
               <a class="btn ghost" href="#" data-link="serta" rel="sponsored nofollow">Check Serta Price <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-              <div class="rr-meta"><div><small>PRICE LEVEL</small><strong>$$</strong></div><a href="#" data-link="serta" rel="sponsored nofollow">Learn more →</a></div>
+              <div class="rr-meta"><div><small>PRICE LEVEL</small><strong>$$</strong></div></div>
             </div>
           </div>
         </article>
@@ -397,7 +383,6 @@
           <div class="rr-main">
             <div class="rr-brand">
               <img src="assets/beautyrest.png" alt="Beautyrest">
-              <span class="rr-best">Best for Support &amp; Durability</span>
               <p>A supportive hybrid designed for heavier sleepers and those who prefer a more traditional feel.</p>
               <div class="rr-score"><span class="num">9.1<small> /10</small></span><div><span class="stars" aria-label="9.1 out of 10"><i style="width:91%"></i></span><em>Bed Review score</em></div></div>
             </div>
@@ -408,7 +393,7 @@
             </div>
             <div class="rr-action">
               <a class="btn ghost" href="#" data-link="beautyrest" rel="sponsored nofollow">Check Beautyrest Price <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-              <div class="rr-meta"><div><small>PRICE LEVEL</small><strong>$$$</strong></div><a href="#" data-link="beautyrest" rel="sponsored nofollow">Learn more →</a></div>
+              <div class="rr-meta"><div><small>PRICE LEVEL</small><strong>$$$</strong></div></div>
             </div>
           </div>
         </article>
@@ -502,7 +487,7 @@
       <div class="final-box">
         <div class="final-media">
           <img src="assets/img/tn-original.webp" alt="Couple relaxing on a Tuft &amp; Needle Original mattress" width="900" height="900" loading="lazy">
-          <div class="final-score"><b>9.7</b><span><span class="stars" aria-label="9.7 out of 10"><i style="width:97%"></i></span><br>Bed Review score</span></div>
+          <div class="final-score"><b>9.8</b><span><span class="stars" aria-label="9.8 out of 10"><i style="width:98%"></i></span><br>Bed Review score</span></div>
         </div>
         <div class="final-body">
           <img class="final-logo" src="assets/tuft-needle.webp" alt="Tuft &amp; Needle">
