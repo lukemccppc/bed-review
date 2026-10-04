@@ -134,13 +134,11 @@
   .score-row .num { font-size: 2.1rem; font-weight: 800; letter-spacing: -.03em; color: var(--ink); line-height: 1; }
   .score-row .num small { font-size: 1rem; font-weight: 600; color: var(--muted); letter-spacing: 0; }
   .score-row .lbl { display: inline-flex; align-items: center; gap: 8px; font-size: .9rem; color: var(--ink); }
-  .rh-desc { font-size: 1rem; color: #4a5263; margin-bottom: 20px; max-width: 560px; }
-  .why-list { list-style: none; display: grid; gap: 16px; }
-  .why-list li { display: grid; grid-template-columns: 38px 1fr; gap: 14px; align-items: start; }
-  .why-list .chk { width: 38px; height: 38px; border-radius: 50%; background: var(--accent-soft); color: var(--blue); display: flex; align-items: center; justify-content: center; }
-  .why-list .chk svg { width: 18px; height: 18px; }
-  .why-list b { display: block; font-size: 1.05rem; font-weight: 600; color: var(--ink); }
-  .why-list span { font-size: .9rem; color: var(--muted); }
+  .why-list { list-style: none; display: grid; gap: 10px; margin-top: 4px; }
+  .why-list li { display: flex; gap: 12px; align-items: center; }
+  .why-list .chk { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--accent-soft); color: var(--blue); display: flex; align-items: center; justify-content: center; }
+  .why-list .chk svg { width: 14px; height: 14px; }
+  .why-list b { font-size: 1rem; font-weight: 600; color: var(--ink); white-space: nowrap; }
   .rh-action { border-left: 1px solid var(--blue-line); padding: 6px 0 6px 26px; display: flex; flex-direction: column; gap: 16px; }
   .offer-box { display: grid; grid-template-columns: 30px 1fr; gap: 12px; background: var(--accent-soft); border-radius: 14px; padding: 18px; }
   .offer-box[hidden] { display: none; }
@@ -336,11 +334,14 @@
               <span class="num">9.8<small>/10</small></span>
               <span class="lbl">Bed Review Score <span class="info" title="Scores reflect our comparison of specs, materials, pricing, policies, customer feedback and independent testing.">i</span></span>
             </div>
-            <p class="rh-desc">The best balance of comfort, support, cooling and value of the mattresses we compared. A versatile option that works well for most sleep styles.</p>
             <ul class="why-list">
-              <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Responsive Pressure Relief</b><span>Comfort without the stuck-in-foam feeling</span></div></li>
-              <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Built-In Cooling</b><span>Breathable design with cooling gel &amp; graphite</span></div></li>
-              <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><div><b>Exceptional Value</b><span>Premium comfort without the luxury-mattress price</span></div></li>
+              <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><b>Responsive Pressure Relief</b></li>
+              <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><b>Built-In Cooling</b></li>
+              <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><b>Exceptional Value</b></li>
+              <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><b>100 Night Sleep Trial</b></li>
+              <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><b>10-Year Limited Warranty</b></li>
+              <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><b>Free Shipping &amp; Returns</b></li>
+              <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><b>Responsibly Crafted</b></li>
             </ul>
           </div>
           <div class="rh-action">
