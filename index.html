@@ -139,7 +139,7 @@
   .why-list .chk { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--accent-soft); color: var(--blue); display: flex; align-items: center; justify-content: center; }
   .why-list .chk svg { width: 14px; height: 14px; }
   .why-list b { font-size: 1rem; font-weight: 600; color: var(--ink); white-space: nowrap; }
-  .rh-action { border-left: 1px solid var(--blue-line); padding: 6px 0 6px 26px; display: flex; flex-direction: column; gap: 16px; }
+  .rh-action { border-left: 1px solid var(--blue-line); padding: 6px 0 6px 26px; display: flex; flex-direction: column; justify-content: center; gap: 16px; }
   .offer-box { display: grid; grid-template-columns: 30px 1fr; gap: 12px; background: var(--accent-soft); border-radius: 14px; padding: 18px; }
   .offer-box[hidden] { display: none; }
   .offer-box svg { width: 26px; height: 26px; color: var(--blue); }
@@ -148,10 +148,6 @@
   .offer-box .note { font-size: .78rem; color: var(--muted); }
   .rh-action .btn { width: 100%; }
   .btn .arr { width: 18px; height: 18px; }
-  .perk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 14px; border-top: 1px solid var(--blue-line); padding-top: 18px; }
-  .perk-grid div { display: grid; grid-template-columns: 30px 1fr; gap: 10px; align-items: start; font-size: .78rem; color: var(--muted); line-height: 1.3; }
-  .perk-grid svg { width: 26px; height: 26px; color: var(--blue); }
-  .perk-grid b { display: block; font-size: .92rem; color: var(--ink); }
 
   /* #2 / #3 rows */
   .rank-row { display: grid; grid-template-columns: 110px 1fr; background: var(--white); border: 1px solid var(--blue-line); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(47, 70, 121, .07); }
@@ -201,8 +197,7 @@
     .rr-feats .ic { width: 46px; height: 46px; margin: 0; grid-row: span 2; }
     .rr-feats .ic svg { width: 22px; height: 22px; }
     .rr-feats b { margin-bottom: 2px; }
-    .perk-grid { gap: 14px 10px; }
-  }
+    }
   .award { font-size: .74rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--accent-ink); }
 
   /* Why #1: benefit blocks */
@@ -353,12 +348,6 @@
               </div>
             </div>
             <a class="btn lg" href="https://www.tuftandneedle.com/collections/mattresses" data-link="tn" rel="sponsored nofollow">Shop At Tuft &amp; Needle <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <div class="perk-grid">
-              <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><span><b>100 nights</b>Sleep trial</span></div>
-              <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg><span><b>10-year</b>Limited warranty</span></div>
-              <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 4h14v12H1zM15 8h4l4 4v4h-8"/><circle cx="5.5" cy="18.5" r="2"/><circle cx="18.5" cy="18.5" r="2"/></svg><span><b>Free</b>Shipping &amp; returns</span></div>
-              <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 16-10-1 12-5 16-9 17z"/><path d="M4 21c4-6 8-9 12-11"/></svg><span><b>Responsibly Crafted</b>Certified materials</span></div>
-            </div>
           </div>
         </article>
         <article class="rank-row">
