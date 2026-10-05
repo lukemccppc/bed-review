@@ -122,33 +122,34 @@
   .info { display: inline-flex; align-items: center; justify-content: center; width: 17px; height: 17px; border: 1.5px solid var(--muted); border-radius: 50%; font-size: .68rem; font-weight: 700; color: var(--muted); text-decoration: none; font-style: normal; }
 
   /* #1 feature card */
-  .rank-hero { display: grid; grid-template-columns: 28% 1fr 30%; gap: 34px; background: var(--white); border: 1px solid var(--blue-line); border-radius: 22px; padding: 18px 26px 18px 18px; box-shadow: 0 18px 50px rgba(47, 70, 121, .12); position: relative; align-items: stretch; }
-  .rh-media { position: relative; border-radius: 16px; overflow: hidden; min-height: 320px; }
-  .rh-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-  .ribbon { position: absolute; top: -18px; left: 22px; z-index: 2; width: 98px; padding: 18px 0 26px; background: var(--blue-dark); color: var(--white); text-align: center; border-radius: 6px 6px 0 0; clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 86%, 0 100%); box-shadow: 0 6px 14px rgba(0,0,0,.18); }
-  .ribbon b { display: block; font-size: 2.3rem; font-weight: 800; line-height: 1; letter-spacing: -.03em; }
-  .ribbon b small { font-size: 1.2rem; vertical-align: 12px; margin-right: 1px; }
-  .ribbon span { display: block; font-size: .66rem; font-weight: 800; letter-spacing: .12em; margin-top: 8px; }
-  .rh-body { padding: 18px 0 10px; }
-  .rh-body .brand-logo { width: 300px; max-width: 100%; height: auto; }
-  .eyebrow-wide { display: block; font-size: .78rem; font-weight: 700; letter-spacing: .26em; text-transform: uppercase; color: #7a8399; margin: 10px 0 14px; }
-  .score-row { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 14px; margin-bottom: 16px; }
-  .score-row .num { font-size: 2.1rem; font-weight: 800; letter-spacing: -.03em; color: var(--ink); line-height: 1; }
-  .score-row .num small { font-size: 1rem; font-weight: 600; color: var(--muted); letter-spacing: 0; }
-  .score-row .lbl { display: inline-flex; align-items: center; gap: 8px; font-size: .9rem; color: var(--ink); }
-  .why-list { list-style: none; display: grid; gap: 10px; margin-top: 4px; }
+  .rank-hero { position: relative; display: grid; grid-template-columns: 110px 1fr; background: var(--white); border: 1px solid #c4d3ea; border-radius: 20px; box-shadow: 0 18px 50px rgba(47, 70, 121, .14); }
+  .rh-rail { position: relative; background: var(--accent-soft); border-radius: 19px 0 0 19px; }
+  .ribbon { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); z-index: 2; width: 84px; padding: 16px 0 24px; background: var(--blue-dark); color: var(--white); text-align: center; border-radius: 6px 6px 0 0; clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 86%, 0 100%); box-shadow: 0 6px 14px rgba(0,0,0,.18); }
+  .ribbon b { display: block; font-size: 2.1rem; font-weight: 800; line-height: 1; letter-spacing: -.03em; }
+  .ribbon b small { font-size: 1.1rem; vertical-align: 11px; margin-right: 1px; }
+  .ribbon span { display: block; font-size: .62rem; font-weight: 800; letter-spacing: .12em; margin-top: 8px; }
+  .rh-main { display: grid; grid-template-columns: 1.1fr 1.55fr 1.05fr; align-items: center; padding: 26px; }
+  .rh-main > * + * { border-left: 1px solid var(--blue-line); }
+  .rh-brand { padding-right: 26px; }
+  .rh-brand .brand-logo { width: 170px; height: auto; display: block; }
+  .eyebrow-wide { display: block; font-size: .72rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: #7a8399; margin: 14px 0 12px; }
+  .score-row { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 12px; }
+  .score-row .num { font-size: 2.3rem; font-weight: 800; letter-spacing: -.04em; color: var(--ink); line-height: 1; }
+  .score-row .num small { font-size: .95rem; font-weight: 600; color: var(--muted); letter-spacing: 0; }
+  .score-row .lbl { display: inline-flex; align-items: center; gap: 8px; font-size: .82rem; color: var(--muted); }
+  .rh-bullets { padding: 0 26px; }
+  .why-list { list-style: none; display: grid; gap: 10px; }
   .why-list li { display: flex; gap: 12px; align-items: center; }
-  .why-list .chk { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--accent-soft); color: var(--blue); display: flex; align-items: center; justify-content: center; }
-  .why-list .chk svg { width: 14px; height: 14px; }
-  .why-list b { font-size: 1rem; font-weight: 600; color: var(--ink); white-space: nowrap; }
-  .rh-action { border-left: 1px solid var(--blue-line); padding: 6px 0 6px 26px; display: flex; flex-direction: column; justify-content: center; gap: 16px; }
-  .offer-box { display: grid; grid-template-columns: 30px 1fr; gap: 12px; background: var(--accent-soft); border-radius: 14px; padding: 18px; }
-  .offer-box[hidden] { display: none; }
-  .offer-box svg { width: 26px; height: 26px; color: var(--blue); }
-  .offer-box .lbl { font-size: .74rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--accent-ink); }
-  .offer-box .txt { font-size: 1.05rem; font-weight: 700; color: var(--ink); line-height: 1.35; margin: 4px 0 6px; }
-  .offer-box .note { font-size: .78rem; color: var(--muted); }
-  .rh-action .btn { width: 100%; }
+  .why-list .chk { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; background: var(--accent-soft); color: var(--blue); display: flex; align-items: center; justify-content: center; }
+  .why-list .chk svg { width: 13px; height: 13px; }
+  .why-list b { font-size: .97rem; font-weight: 600; color: var(--ink); }
+  .rh-action { padding-left: 24px; display: flex; flex-direction: column; gap: 14px; }
+  .rh-media { border-radius: 12px; overflow: hidden; aspect-ratio: 4 / 3; background: var(--blue-soft); }
+  .rh-media img { width: 100%; height: 100%; object-fit: cover; object-position: center 70%; }
+  .rh-action .btn { width: 100%; white-space: nowrap; padding: 14px 14px; font-size: 1rem; }
+  .offer-note { display: flex; align-items: flex-start; gap: 8px; font-size: .88rem; font-weight: 700; color: var(--accent-ink); line-height: 1.35; margin: 0; }
+  .offer-note[hidden] { display: none; }
+  .offer-note svg { flex-shrink: 0; width: 18px; height: 18px; margin-top: 1px; }
   .btn .arr { width: 18px; height: 18px; }
 
   /* #2 / #3 rows */
@@ -182,10 +183,16 @@
   .rr-meta a:hover { text-decoration: underline; }
 
   @media (max-width: 980px) {
-    .rank-hero { grid-template-columns: 1fr; gap: 20px; padding: 14px 14px 22px; }
-    .rh-media { min-height: 0; aspect-ratio: 16 / 10; }
-    .rh-body { padding: 0 6px; }
-    .rh-action { border-left: 0; padding: 0 6px; }
+    .rank-hero { grid-template-columns: 1fr; }
+    .rh-rail { height: 46px; border-radius: 19px 19px 0 0; }
+    .ribbon { left: 18px; transform: none; width: 72px; padding: 12px 0 18px; }
+    .ribbon b { font-size: 1.7rem; }
+    .rh-main { grid-template-columns: 1fr; gap: 20px; padding: 18px 18px 22px; }
+    .rh-main > * + * { border-left: 0; }
+    .rh-brand { padding: 30px 0 0; }
+    .rh-action { order: 2; padding: 0; }
+    .rh-bullets { order: 3; padding: 18px 0 0; border-top: 1px solid var(--blue-line); }
+    .rh-media { aspect-ratio: 16 / 10; }
     .rank-row { grid-template-columns: 1fr; }
     .rr-num { flex-direction: row; justify-content: flex-start; padding: 10px 18px; }
     .rr-num b { font-size: 1.7rem; }
@@ -322,17 +329,19 @@
 
       <div class="ranks" id="picks">
         <article class="rank-hero">
-          <div class="ribbon" aria-label="Number 1 top pick"><b><small>#</small>1</b><span>TOP PICK</span></div>
-          <div class="rh-media"><img src="assets/img/find-right-mattress.webp" alt="Tuft &amp; Needle Original mattress on a wooden bed frame" width="750" height="780"></div>
-          <div class="rh-body">
-            <img class="brand-logo" src="assets/tuft-needle.webp" alt="Tuft &amp; Needle">
-            <span class="eyebrow-wide">Best Overall Mattress</span>
-            <div class="score-row">
+          <div class="rh-rail"><div class="ribbon" aria-label="Number 1 top pick"><b><small>#</small>1</b><span>TOP PICK</span></div></div>
+          <div class="rh-main">
+            <div class="rh-brand">
+              <img class="brand-logo" src="assets/tn-lockup.png" alt="Tuft &amp; Needle" width="300" height="161">
+              <span class="eyebrow-wide">Best Overall Mattress</span>
+              <div class="score-row">
               <span class="stars" aria-label="9.8 out of 10"><i style="width:98%"></i></span>
               <span class="num">9.8<small>/10</small></span>
               <span class="lbl">Bed Review Score <span class="info" title="Scores reflect our comparison of specs, materials, pricing, policies, customer feedback and independent testing.">i</span></span>
             </div>
-            <ul class="why-list">
+            </div>
+            <div class="rh-bullets">
+              <ul class="why-list">
               <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><b>Responsive Pressure Relief</b></li>
               <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><b>Built-In Cooling</b></li>
               <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><b>Exceptional Value</b></li>
@@ -341,16 +350,12 @@
               <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><b>Free Shipping &amp; Returns</b></li>
               <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><b>Responsibly Crafted</b></li>
             </ul>
-          </div>
-          <div class="rh-action">
-            <div class="offer-box" data-offer hidden>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v9H4v-9M2 7h20v5H2zM12 21V7M12 7H7.5a2.5 2.5 0 1 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 1 0 0-5C13 2 12 7 12 7z"/></svg>
-              <div>
-                <div class="lbl">Current Offer</div>
-                <div class="txt" data-offer-text></div>
-              </div>
             </div>
-            <a class="btn lg" href="https://www.tuftandneedle.com/collections/mattresses" data-link="tn" rel="sponsored nofollow">Shop At Tuft &amp; Needle <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <div class="rh-action">
+              <div class="rh-media"><img src="assets/img/find-right-mattress.webp" alt="Tuft &amp; Needle Original mattress on a wooden bed frame" width="750" height="780"></div>
+              <a class="btn lg" href="https://www.tuftandneedle.com/collections/mattresses" data-link="tn" rel="sponsored nofollow">Shop At Tuft &amp; Needle <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              <p class="offer-note" data-offer hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v9H4v-9M2 7h20v5H2zM12 21V7M12 7H7.5a2.5 2.5 0 1 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 1 0 0-5C13 2 12 7 12 7z"/></svg><span data-offer-text></span></p>
+            </div>
           </div>
         </article>
         <article class="rank-row">
