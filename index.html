@@ -172,15 +172,10 @@
   .rr-feats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 0 20px; text-align: center; }
   .rr-feats .ic { width: 54px; height: 54px; border-radius: 50%; background: var(--accent-soft); color: var(--blue); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
   .rr-feats .ic svg { width: 26px; height: 26px; }
-  .rr-feats b { display: block; font-size: .95rem; color: var(--ink); line-height: 1.3; margin-bottom: 6px; }
+  .rr-feats b { display: block; font-size: .95rem; color: var(--ink); line-height: 1.3; }
   .rr-feats span { font-size: .82rem; color: var(--muted); line-height: 1.35; display: block; }
   .rr-action { padding-left: 24px; }
-  .rr-action .btn { width: 100%; white-space: nowrap; padding: 13px 14px; font-size: .97rem; }
-  .rr-meta { display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid var(--blue-line); margin-top: 18px; padding-top: 14px; }
-  .rr-meta small { display: block; font-size: .7rem; font-weight: 700; letter-spacing: .1em; color: var(--muted); }
-  .rr-meta strong { font-size: 1.15rem; color: var(--ink); }
-  .rr-meta a { font-size: .9rem; font-weight: 700; color: var(--accent-ink); text-decoration: none; }
-  .rr-meta a:hover { text-decoration: underline; }
+  .rr-action .btn { width: 100%; white-space: nowrap; padding: 14px 14px; font-size: 1rem; }
 
   @media (max-width: 980px) {
     .rank-hero { grid-template-columns: 1fr; }
@@ -203,8 +198,8 @@
   }
   @media (max-width: 480px) {
     .rr-feats { grid-template-columns: 1fr; text-align: left; gap: 14px; }
-    .rr-feats > div { display: grid; grid-template-columns: 46px 1fr; column-gap: 12px; }
-    .rr-feats .ic { width: 46px; height: 46px; margin: 0; grid-row: span 2; }
+    .rr-feats > div { display: grid; grid-template-columns: 46px 1fr; column-gap: 12px; align-items: center; }
+    .rr-feats .ic { width: 46px; height: 46px; margin: 0; }
     .rr-feats .ic svg { width: 22px; height: 22px; }
     .rr-feats b { margin-bottom: 2px; }
     }
@@ -367,13 +362,12 @@
               <div class="rr-score"><span class="num">9.5<small> /10</small></span><div><span class="stars" aria-label="9.5 out of 10"><i style="width:95%"></i></span><em>Bed Review score</em></div></div>
             </div>
             <div class="rr-feats">
-                <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H8a5 5 0 1 1 .9-9.9A6 6 0 0 1 20 11a4 4 0 0 1-2.5 8z"/></svg></span><b>Good pressure relief</b><span>Comfortable, contouring feel for side sleepers.</span></div>
-                <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8c2.5-2 4.5-2 7 0s4.5 2 7 0 4.5-2 6 0M2 13c2.5-2 4.5-2 7 0s4.5 2 7 0 4.5-2 6 0M2 18c2.5-2 4.5-2 7 0s4.5 2 7 0 4.5-2 6 0"/></svg></span><b>Great motion isolation</b><span>A good choice for couples.</span></div>
-                <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 12 10 5 10-5M2 17l10 5 10-5"/></svg></span><b>Foam &amp; hybrid options</b><span>A wide range of models to choose from.</span></div>
+                <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H8a5 5 0 1 1 .9-9.9A6 6 0 0 1 20 11a4 4 0 0 1-2.5 8z"/></svg></span><b>Good pressure relief</b></div>
+                <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8c2.5-2 4.5-2 7 0s4.5 2 7 0 4.5-2 6 0M2 13c2.5-2 4.5-2 7 0s4.5 2 7 0 4.5-2 6 0M2 18c2.5-2 4.5-2 7 0s4.5 2 7 0 4.5-2 6 0"/></svg></span><b>Great motion isolation</b></div>
+                <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 12 10 5 10-5M2 17l10 5 10-5"/></svg></span><b>Foam &amp; hybrid options</b></div>
             </div>
             <div class="rr-action">
-              <a class="btn ghost" href="https://www.serta.com/" data-link="serta" rel="sponsored nofollow">Check Serta Price <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-              <div class="rr-meta"><div><small>PRICE LEVEL</small><strong>$$</strong></div></div>
+              <a class="btn lg" href="https://www.serta.com/" data-link="serta" rel="sponsored nofollow">Check Serta Price <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             </div>
           </div>
         </article>
@@ -386,13 +380,12 @@
               <div class="rr-score"><span class="num">9.3<small> /10</small></span><div><span class="stars" aria-label="9.3 out of 10"><i style="width:93%"></i></span><em>Bed Review score</em></div></div>
             </div>
             <div class="rr-feats">
-                <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 16-10-1 12-5 16-9 17z"/><path d="M4 21c4-6 8-9 12-11"/></svg></span><b>Plant-based Bio-Pur® foam</b><span>Made with castor-bean oil in place of some petroleum.</span></div>
-                <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 20 6.5v9L12 20l-8-4.5v-9z"/><path d="M12 7.5 16 10v4.5L12 17l-4-2.5V10z"/></svg></span><b>HIVE® zoned support</b><span>Cradles shoulders and hips, firmer under the lower back.</span></div>
-                <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg></span><b>20-year warranty</b><span>Plus a 100-night trial with free returns.</span></div>
+                <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 16-10-1 12-5 16-9 17z"/><path d="M4 21c4-6 8-9 12-11"/></svg></span><b>Plant-based Bio-Pur® foam</b></div>
+                <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 20 6.5v9L12 20l-8-4.5v-9z"/><path d="M12 7.5 16 10v4.5L12 17l-4-2.5V10z"/></svg></span><b>HIVE® zoned support</b></div>
+                <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg></span><b>20-year warranty</b></div>
             </div>
             <div class="rr-action">
-              <a class="btn ghost" href="https://amerisleep.com/" data-link="amerisleep" rel="sponsored nofollow">Check Amerisleep Price <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-              <div class="rr-meta"><div><small>PRICE LEVEL</small><strong>$$</strong></div></div>
+              <a class="btn lg" href="https://amerisleep.com/" data-link="amerisleep" rel="sponsored nofollow">Check Amerisleep Price <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             </div>
           </div>
         </article>
@@ -405,13 +398,12 @@
               <div class="rr-score"><span class="num">9.1<small> /10</small></span><div><span class="stars" aria-label="9.1 out of 10"><i style="width:91%"></i></span><em>Bed Review score</em></div></div>
             </div>
             <div class="rr-feats">
-                <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7v10M18 7v10M3 9v6M21 9v6M6 12h12"/></svg></span><b>Strong edge support</b><span>A supportive feel, especially for heavier sleepers.</span></div>
-                <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5z"/></svg></span><b>Durable hybrid construction</b><span>Built with pocketed coils for long-term support.</span></div>
-                <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></span><b>Traditional feel options</b><span>A more classic feel with multiple models available.</span></div>
+                <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7v10M18 7v10M3 9v6M21 9v6M6 12h12"/></svg></span><b>Strong edge support</b></div>
+                <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5z"/></svg></span><b>Durable hybrid construction</b></div>
+                <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></span><b>Traditional feel options</b></div>
             </div>
             <div class="rr-action">
-              <a class="btn ghost" href="https://www.beautyrest.com/" data-link="beautyrest" rel="sponsored nofollow">Check Beautyrest Price <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-              <div class="rr-meta"><div><small>PRICE LEVEL</small><strong>$$$</strong></div></div>
+              <a class="btn lg" href="https://www.beautyrest.com/" data-link="beautyrest" rel="sponsored nofollow">Check Beautyrest Price <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             </div>
           </div>
         </article>
@@ -424,13 +416,12 @@
               <div class="rr-score"><span class="num">9.0<small> /10</small></span><div><span class="stars" aria-label="9.0 out of 10"><i style="width:90%"></i></span><em>Bed Review score</em></div></div>
             </div>
             <div class="rr-feats">
-                <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span><b>Built for recovery</b><span>Designed with athletes and active sleepers in mind.</span></div>
-                <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9.5h18M3 14.5h18"/></svg></span><b>Zoned support</b><span>Targeted support for shoulders, back and hips.</span></div>
-                <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M4.9 4.9l14.2 14.2M2 12h20M4.9 19.1 19.1 4.9"/></svg></span><b>Cooling graphite foam</b><span>Breathable layers help you sleep cooler.</span></div>
+                <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span><b>Built for recovery</b></div>
+                <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9.5h18M3 14.5h18"/></svg></span><b>Zoned support</b></div>
+                <div><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M4.9 4.9l14.2 14.2M2 12h20M4.9 19.1 19.1 4.9"/></svg></span><b>Cooling graphite foam</b></div>
             </div>
             <div class="rr-action">
-              <a class="btn ghost" href="https://zomasleep.com/" data-link="zoma" rel="sponsored nofollow">Check ZOMA Price <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-              <div class="rr-meta"><div><small>PRICE LEVEL</small><strong>$</strong></div></div>
+              <a class="btn lg" href="https://zomasleep.com/" data-link="zoma" rel="sponsored nofollow">Check ZOMA Price <svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             </div>
           </div>
         </article>
